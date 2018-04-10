@@ -7,58 +7,114 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MASCARADA</title>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+
     <link rel="stylesheet" href="vendors/normalize.css">
     <link rel="stylesheet" href="res/css/style.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar flex-container">
+        <nav class="navbar navbar-expand-lg navbar-dark orange lighten-3 p-1">
 
-            <a href="index.html">
-                <div>Home</div>
+            <!-- Navbar logo -->
+            <a class="navbar-brand" href="#">
+                <img class="nav-logo" src="res/img/logo-white.svg" alt="">
+                <span>MASCARADA</span>
             </a>
-            <a href="lineup.html">
-                <div>Line up</div>
-            </a>
-            <a href="#">
-                <div>Tickets</div>
-            </a>
-            <a href="#">
-                <div>Camping</div>
-            </a>
-            <a href="#">
-                <div>Login</div>
-            </a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navCollapsed" aria-controls="navCollapsed"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse justify-content-center" id="navCollapsed">
+
+                <!-- Links -->
+                <ul class="navbar-nav ">
+                    <li class="nav-item mr-4 ">
+                        <a class="nav-link" href="index.html">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="lineup.html">LineUp</a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="#">Tickets</a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link" href="#">Camping</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+                <!-- Links -->
+            </div>
+            <!-- Collapsible content -->
+
         </nav>
     </header>
     <section class="main-section">
         <div class="image-grid  grid-container">
             <div class="image-container">
-                <a href="#"><img src="res/img/armin-van-buuren.png" alt="armin van buuren"></a>
+                <a href="#">
+                    <img src="res/img/carl-cox.png" alt="carl cox">
+                </a>
+
             </div>
             <div class="image-container">
-                <a href="#"><img src="res/img/carl-cox.png" alt="carl cox"></a>
-                
+                <a href="#">
+                    <img src="res/img/armin-van-buuren.png" alt="armin van buuren">
+                </a>
+            </div>
+
+            <div class="image-container">
+                <a href="#">
+                    <img src="res/img/hardwell.png" alt="hardwell">
+                </a>
+
             </div>
             <div class="image-container">
-                <a href="#"><img src="res/img/hardwell.png" alt="hardwell"></a>
-                
+                <a href="#">
+                    <img src="res/img/150818-zimmerman-calvin-harris-tease_waufgj.jpg" alt="calvin harris">
+                </a>
             </div>
             <div class="image-container">
-                <a href="#"><img src="res/img/150818-zimmerman-calvin-harris-tease_waufgj.jpg" alt="calvin harris"></a>
+                <a href="#">
+                    <img src="res/img/Marshmello.png" alt="marshmello">
+                </a>
+
             </div>
             <div class="image-container">
-                <a href="#"><img src="res/img/Marshmello.png" alt="marshmello"></a>
-                
+                <a href="#">
+                    <img src="res/img/Tiesto-Main.png" alt="tiesto">
+                </a>
+
             </div>
             <div class="image-container">
-                <a href="#"><img src="res/img/Tiesto-Main.png" alt="tiesto"></a>
-                
-            </div>
-            <div class="image-container">
-                <a href="#"><img src="res/img/ummet_ozcan.jpg" alt="ummet ozcan"></a>
-                
+                <a href="#">
+                    <img src="res/img/ummet_ozcan.jpg" alt="ummet ozcan">
+                </a>
+
             </div>
         </div>
 
