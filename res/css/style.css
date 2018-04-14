@@ -13,6 +13,10 @@ html {
     font-family: 'Exo 2', sans-serif;
 }
 
+body {
+    height: 100vh;
+}
+
 img {
     max-width: 100%;
     height: 100%;
@@ -39,12 +43,6 @@ REUSABLE COMPONENTS
     flex-direction: column;
 }
 
-.navbar {
-    font-size: 125%;
-    width: 100%;
-    align-items: center;
-}
-
 .navbar-brand span {
     font-size: 140%;
     font-family: 'Exo 2', sans-serif;
@@ -61,7 +59,6 @@ REUSABLE COMPONENTS
 }
 
     .navbar-nav li a {
-        
         font-weight: 400;
     }
 
@@ -103,7 +100,11 @@ REUSABLE COMPONENTS
     background-size: cover;
     background-attachment: fixed;
     padding: 2em;
+    height: 100%;
+    position: relative;
 }
+
+
 
 
 
@@ -114,7 +115,7 @@ REUSABLE COMPONENTS
 /* --- Header --- */
 
 .home-header {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url('../img/aditya-chinchure-494048-unsplash.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url('../img/aditya-chinchure-494048-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -127,6 +128,9 @@ REUSABLE COMPONENTS
         color: #ffffff;
         font-size: 130%;
         background: transparent;
+        font-size: 120%;
+        width: 100%;
+        align-items: center;
     }
 
 .logo-container {
@@ -202,3 +206,13 @@ REUSABLE COMPONENTS
 	    filter: blur(3px);
     }
 
+/* ---------------
+    TICKETS
+-----------------*/
+
+.tickets-illustration img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
