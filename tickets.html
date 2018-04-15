@@ -61,9 +61,6 @@
                     <li class="nav-item mr-4">
                         <a class="nav-link" href="#">Tickets</a>
                     </li>
-                    <li class="nav-item mr-4">
-                        <a class="nav-link" href="#">Camping</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
                     </li>
@@ -117,10 +114,79 @@
                     <input type="date" id="dob" class="form-control">
                     <label for="dob" class="active">Date of birth</label>
                 </div>
-
                 <div class="text-center mt-4">
                     <button class="btn btn-default" type="submit">BUY</button>
                 </div>
+                <div class="camping-header">
+                    <p class="h4 text-center mb-4">Choose Camping spot</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <select class="mdb-select">
+                            <option value="" disabled selected>Select a spot</option>
+                            <option value="1">Spot 1</option>
+                            <option value="1">Spot 2</option>
+                            <option value="1">Spot 3</option>
+                            <option value="1">Spot 4</option>
+                            <option value="1">Spot 5</option>
+                            <option value="1">Spot 6</option>
+                            <option value="1">Spot 7</option>
+                            <option value="1">Spot 8</option>
+                            <option value="1">Spot 9</option>
+                            <option value="1">Spot 10</option>
+                            <option value="1">Spot 11</option>
+                            <option value="1">Spot 12</option>
+                            <option value="1">Spot 13</option>
+                            <option value="1">Spot 14</option>
+                            <option value="1">Spot 15</option>
+                            <option value="1">Spot 16</option>
+                            <option value="1">Spot 17</option>
+                            <option value="1">Spot 18</option>
+                            <option value="1">Spot 19</option>
+                            <option value="1">Spot 20</option>
+                            <option value="1">Spot 21</option>
+                            <option value="1">Spot 22</option>
+                            <option value="1">Spot 23</option>
+                            <option value="2">Spot 24</option>
+                            <option value="3">Spot 25</option>
+                        </select>
+                        <label>
+                            <h5>Camping spots</h5>
+                        </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-check checkbox-teal">
+                            <input type="checkbox" class="form-check-input" id="checkbox8" unchecked>
+                            <label class="form-check-label" for="checkbox8">
+                                <h5>Rent a tent</h5>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="text-center mt-4">
+                            <button class="btn btn-default" type="submit">BUY</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <img id="myImg" src="res\img\campingMap.png" width="400" height="600">
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- The Close Button -->
+                            <span class="close">&times;</span>
+
+                            <!-- Modal Content (The Image) -->
+                            <img class="modal-content" id="img01">
+
+                            <!-- Modal Caption (Image Text) -->
+                            <div id="caption"></div>
+                        </div>
+                    </div>
+                </div>
+
             </form>
         </div>
 
@@ -129,6 +195,28 @@
         </div>
 
     </section>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById('myImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function () {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        } 
+    </script>
 </body>
 
 </html>
