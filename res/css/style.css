@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 img {
@@ -105,7 +105,64 @@ REUSABLE COMPONENTS
 }
 
 
+/* --- Footer --- */
 
+.footer {
+    background-color: #333333;
+    padding: 40px;
+    font-size: 80%;
+}
+
+    .social-icons {
+        list-style: none;
+        float: right;
+    }
+
+        .social-icons li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .social-icons li:last-child {
+            margin-right: 0;
+        }
+
+        .social-icons li a:link,
+        .social-icons li a:visited {
+            text-decoration: none;
+            border: 0;
+            color: #888888;
+            transition: color 0.2s;
+        }
+
+
+        .social-icons li a:link,
+        .social-icons li a:visited {
+            font-size: 160%;
+        }
+
+            .fa-facebook-square,
+            .fa-twitter-square,
+            .fa-google-plus,
+            .fa-instagram {
+                transition: color 0.2s;
+            }
+
+            .fa-facebook-square:hover {
+                color: #3b5998;
+            }
+
+            .fa-twitter-square:hover {
+                color: #00aced;
+            }
+
+            .fa-google-plus:hover {
+                color: #dd4b39;
+            }
+
+            .fa-instagram:hover {
+                color: #517af4;
+            }
 
 
 /* ---------------
@@ -210,12 +267,18 @@ REUSABLE COMPONENTS
     TICKETS
 -----------------*/
 
-.tickets-illustration img {
+.tickets-illustration {
     position: absolute;
-    top: 0;
+    top: 1%;
     right: 0;
+    bottom: 0;
     z-index: -1;
 }
+
+    .tickets-illustration img {
+        width: 100%;
+        height: 90%;
+    }
 
 .checkbox-teal [type="checkbox"]:checked+label:before {
     border-color: transparent #009688 #009688 transparent;
@@ -306,3 +369,4 @@ REUSABLE COMPONENTS
 }
 
                 
+    

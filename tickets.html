@@ -31,7 +31,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark orange lighten-3 p-1">
+        <nav class="navbar navbar-expand-lg navbar-dark green lighten-2 p-1">
 
             <!-- Navbar logo -->
             <a class="navbar-brand" href="#">
@@ -71,14 +71,14 @@
 
         </nav>
     </header>
-    <section class="main-section">
+    <section class="main-section clearfix">
         <div class="row ml-5">
 
             <form class="col-sm-6">
                 <p class="h4 text-center mb-4">Buy Tickets</p>
 
                 <div class="md-form">
-                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <i class="fas fa-envelope prefix grey-text"></i>
                     <input type="email" id="email" class="form-control">
                     <label for="email">Email</label>
                 </div>
@@ -107,66 +107,71 @@
                     </div>
                 </div>
 
-
-
                 <div class="md-form">
                     <i class="fas fa-calendar-alt prefix grey-text"></i>
                     <input type="date" id="dob" class="form-control">
                     <label for="dob" class="active">Date of birth</label>
                 </div>
+
                 <div class="text-center mt-4">
-                    <button class="btn btn-default" type="submit">BUY</button>
+                    <button class="btn btn-default green lighten-2" type="submit">BUY</button>
                 </div>
+
+            </form>
+            <div class="tickets-illustration col-sm-6">
+                <img src="res/img/people-fun.svg" alt="people illustration">
+            </div>
+        </div>
+
+        <div class="row ml-5 p-2">
+            <form action="">
                 <div class="camping-header">
                     <p class="h4 text-center mb-4">Choose Camping spot</p>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select class="mdb-select">
-                            <option value="" disabled selected>Select a spot</option>
-                            <option value="1">Spot 1</option>
-                            <option value="1">Spot 2</option>
-                            <option value="1">Spot 3</option>
-                            <option value="1">Spot 4</option>
-                            <option value="1">Spot 5</option>
-                            <option value="1">Spot 6</option>
-                            <option value="1">Spot 7</option>
-                            <option value="1">Spot 8</option>
-                            <option value="1">Spot 9</option>
-                            <option value="1">Spot 10</option>
-                            <option value="1">Spot 11</option>
-                            <option value="1">Spot 12</option>
-                            <option value="1">Spot 13</option>
-                            <option value="1">Spot 14</option>
-                            <option value="1">Spot 15</option>
-                            <option value="1">Spot 16</option>
-                            <option value="1">Spot 17</option>
-                            <option value="1">Spot 18</option>
-                            <option value="1">Spot 19</option>
-                            <option value="1">Spot 20</option>
-                            <option value="1">Spot 21</option>
-                            <option value="1">Spot 22</option>
-                            <option value="1">Spot 23</option>
-                            <option value="2">Spot 24</option>
-                            <option value="3">Spot 25</option>
-                        </select>
-                        <label>
-                            <h5>Camping spots</h5>
-                        </label>
-                    </div>
-                    <div class="col-sm-6">
+                        <div>
+                            <label class="font-weight-bold">Camping spot:&nbsp;
+                            </label>
+                            <select class="mdb-select">
+                                <option value="" disabled selected>Select a spot</option>
+                                <option value="1">Spot 1</option>
+                                <option value="1">Spot 2</option>
+                                <option value="1">Spot 3</option>
+                                <option value="1">Spot 4</option>
+                                <option value="1">Spot 5</option>
+                                <option value="1">Spot 6</option>
+                                <option value="1">Spot 7</option>
+                                <option value="1">Spot 8</option>
+                                <option value="1">Spot 9</option>
+                                <option value="1">Spot 10</option>
+                                <option value="1">Spot 11</option>
+                                <option value="1">Spot 12</option>
+                                <option value="1">Spot 13</option>
+                                <option value="1">Spot 14</option>
+                                <option value="1">Spot 15</option>
+                                <option value="1">Spot 16</option>
+                                <option value="1">Spot 17</option>
+                                <option value="1">Spot 18</option>
+                                <option value="1">Spot 19</option>
+                                <option value="1">Spot 20</option>
+                                <option value="1">Spot 21</option>
+                                <option value="1">Spot 22</option>
+                                <option value="1">Spot 23</option>
+                                <option value="2">Spot 24</option>
+                                <option value="3">Spot 25</option>
+                            </select>
+                        </div>
+
                         <div class="form-check checkbox-teal">
                             <input type="checkbox" class="form-check-input" id="checkbox8" unchecked>
-                            <label class="form-check-label" for="checkbox8">
-                                <h5>Rent a tent</h5>
-                            </label>
+                            <label class="form-check-label" for="checkbox8">Rent a tent</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="text-center mt-4">
-                            <button class="btn btn-default" type="submit">BUY</button>
+
+                        <div class=" m-auto align-self-end">
+                            <div class="text-center mt-4">
+                                <button class="btn btn-default green lighten-2" type="submit">BUY</button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -186,15 +191,48 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
 
+
+                </div>
             </form>
         </div>
 
-        <div class="tickets-illustration">
-            <img src="res/img/people-fun.svg" alt="people illustration">
-        </div>
+
+
+
+
 
     </section>
+    <footer class="footer">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="social-icons">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Get the modal
         var modal = document.getElementById('myModal');
@@ -215,7 +253,7 @@
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
-        } 
+        }
     </script>
 </body>
 
