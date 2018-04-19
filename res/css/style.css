@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 1em;
+    font-size: 1em !important;
     font-family: 'Exo 2', sans-serif;
 }
 
@@ -47,39 +47,45 @@ REUSABLE COMPONENTS
     flex-direction: column;
 }
 
-.navbar-brand span {
-    font-size: 140%;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: bolder;
-    vertical-align: middle;
-    color: #ffffff;
+
+.navbar.scrolling-navbar {
+    padding: 5px 0;
 }
 
-.navbar-nav li {
-    text-decoration: none;
-    font-size: 110%;
-}
-
-    .navbar-nav li a {
-        font-weight: 400;
+    .navbar.scrolling-navbar.top-nav-collapse {
+        padding: 0;
     }
 
-    .navbar-brand {
-        border-right: solid #0000001f 3px;
+    .navbar-brand  {
+        font-size: 180%;
+        font-family: 'Exo 2', sans-serif;
+        font-weight: bolder;
+        vertical-align: middle;
+        text-decoration: none;
+        color: #ffffff;
     }
 
-    .nav-logo {
-        width: 100px;
-        height: 50px;
+    .navbar-nav li {
+        text-decoration: none;
+        font-size: 125%;
     }
 
-        .navbar-logo h1 {
-            font-size: 140%;
+        .navbar-nav li a {
+            font-weight: 400;
         }
 
-        .navbar .logo img {
-            margin-right: 0.5em;
+        .nav-logo {
+            width: 100px;
+            height: 50px;
         }
+
+            .navbar-logo h1 {
+                font-size: 140%;
+            }
+
+            .navbar .logo img {
+                margin-right: 0.5em;
+            }
 
 .main-section {
     background-color: rgb(128, 201, 255, 0.1);
@@ -158,7 +164,7 @@ REUSABLE COMPONENTS
 /* --- Header --- */
 
 .home-header {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), 
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), 
         url('../img/color-crowd-wsky.jpg');
     background-size: cover;
     background-position: center;
@@ -171,47 +177,49 @@ REUSABLE COMPONENTS
 
 .home-nav {
     position: absolute;
-    bottom: 3%;
+    bottom: 1%;
     color: #ffffff;
     font-size: 130%;
     background: transparent;
-    font-size: 120%;
     width: 100%;
     align-items: center;
     box-shadow: none;
-    padding: 0;
+    margin: 0;
+    padding: 0.2em 0.5em;
 }
 
-    .home-nav li {
+    .home-nav ul li {
         border-bottom: 3px solid transparent;
         transition: border 0.2s;
+        text-decoration: none;
+        list-style: none;
+        font-size: 115%;
     }
 
-    .home-nav .navbar-nav li:nth-child(1):hover {
+        .home-nav ul li a {
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+    .home-nav ul li:nth-child(1):hover {
         border-bottom: 3px solid #d65555;
     }
 
-    .home-nav .navbar-nav li:nth-child(2):hover {
+    .home-nav ul li:nth-child(2):hover {
         border-bottom: 3px solid #df9739;
     }
 
-    .home-nav  .navbar-nav li:nth-child(3):hover {
+    .home-nav  ul li:nth-child(3):hover {
         border-bottom: 3px solid #47df39;
     }
 
-    .home-nav  .navbar-nav li:nth-child(4):hover {
+    .home-nav  ul li:nth-child(4):hover {
         border-bottom: 3px solid #39bedf;
     }
 
-    .home-nav  .navbar-nav li:nth-child(5):hover {
+    .home-nav  ul li:nth-child(5):hover {
         border-bottom: 3px solid #3056ff;
-        
     }
-
-    
-.top-nav-collapse {
-    background-color: #24355C;
-  }
                           
 
 .logo-container {
@@ -242,6 +250,10 @@ REUSABLE COMPONENTS
     background-color: #f4f5c9;
     padding: 2em 0.5em;
     justify-content: space-around;
+
+    -webkit-box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 1px 5px -2px rgba(0,0,0,0.75);
 }
 
 .poster {
@@ -276,22 +288,54 @@ REUSABLE COMPONENTS
     margin: auto;
 }
 
+.image-container {
+    position: relative;
+}
+
     .image-container img {
-        -webkit-filter: blur(0);
-        filter: blur(0);
+        -webkit-transform: scale(1);
+	    transform: scale(1);
         -webkit-transition: .3s ease-in-out;
         transition: .3s ease-in-out;
+        
     }
 
     .image-container:hover img {
-        -webkit-filter: blur(3px);
-	    filter: blur(3px);
+        -webkit-transform: scale(0.9);
+	    transform: scale(0.9);
+    }
+
+.overlay {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: .3s ease-in-out;
+}
+
+    .overlay div {
+        border: 3px solid #333333;
+        color: #333333;
+        background-color: #ffffff;
+        padding: 0.75em 2.5em;
+        font-size: 130%;
+        font-weight: 400;
+    }
+
+    .overlay .button {
+        background-color: red;
+    }
+
+    .image-container:hover .overlay {
+        
+        opacity: 1;
     }
 
 /* ---------------
     TICKETS
 -----------------*/
-
 .tickets-illustration {
     position: absolute;
     top: 1%;
@@ -304,6 +348,10 @@ REUSABLE COMPONENTS
         width: 100%;
         height: 90%;
     }
+
+[role="wrapper"] {
+    padding-left: 2.45em;
+}
 
 .checkbox-teal [type="checkbox"]:checked+label:before {
     border-color: transparent #009688 #009688 transparent;
@@ -326,15 +374,14 @@ REUSABLE COMPONENTS
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 9999; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 }
 
 /* Modal Content (Image) */
@@ -342,15 +389,15 @@ REUSABLE COMPONENTS
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 3500px 2475px;
+    max-width: 3500px;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 #caption {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width:  3500px 2475px;
+    width: 90%;
+    max-width:  3500px;
     text-align: center;
     color: #ccc;
     padding: 10px 0;
