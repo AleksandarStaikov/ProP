@@ -59,7 +59,7 @@
                             <a class="nav-link" href="tickets.html">Tickets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
                     <!-- Links -->
@@ -68,64 +68,86 @@
             </div>
         </nav>
     </header>
-    <section class="main-section mt-5">
-        <div class="image-grid  grid-container">
-            <div class="image-container">
-                <a href="artist.html">
-                    <div class="align-items-end justify-content-center overlay ">
-                        <div class="z-depth-1">Carl Cox</div>
-                    </div>
-                    <img src="res/img/carl-cox.png" alt="carl cox">
-                </a>
+    <section class="form-elegant">
 
-            </div>
-            <div class="image-container">
-                <a href="#">
-                    <div class="align-items-end justify-content-center overlay">
-                        <div class="z-depth-1">Armin Van Buuren</div>
+        <!--Form without header-->
+        <div class="row-ml-5 mt-5">
+            <div class="col-sm-6 login">
+                <div class="card">
+
+                    <div class="card-body mx-4">
+
+                        <!--Header-->
+                        <div class="text-center">
+                            <h3 class="dark-grey-text mb-5">
+                                <strong>Sign in</strong>
+                            </h3>
+                        </div>
+
+                        <!--Body-->
+                        <div class="md-form">
+                            <input type="text" id="Form-email1" class="form-control">
+                            <label for="Form-email1">Your email</label>
+                        </div>
+
+                        <div class="md-form pb-3">
+                            <input type="password" id="Form-pass1" class="form-control">
+                            <label for="Form-pass1">Your password</label>
+                            <p class="font-small blue-text d-flex justify-content-end">Forgot
+                                <a href="#" class="blue-text ml-1"> Password?</a>
+                            </p>
+                        </div>
+
+                        <div class="text-center mb-3">
+                            <button type="button" class="btn btn-indigo btn-block btn-rounded z-depth-1a">Sign in</button>
+                        </div>
                     </div>
-                    <img src="res/img/armin-van-buuren.png" alt="armin van buuren">
-                </a>
+
+                    <!--Footer-->
+                    <div class="modal-footer mx-5 pt-3 mb-1">
+                        <p class="font-small grey-text d-flex justify-content-end">Not a member?
+                            <a href="tickets.html" class="blue-text ml-1"> Sign Up</a>
+                        </p>
+                    </div>
+
+                </div>
+                <!--/Form without header-->
             </div>
 
-            <div class="image-container">
-                <a href="#">
-                    <div class="align-items-end justify-content-center overlay">
-                        <div class="z-depth-1">Hardwell</div>
-                    </div>
-                    <img src="res/img/hardwell.png" alt="hardwell">
-                </a>
-
-            </div>
-            <div class="image-container">
-                <a href="#">
-                    <div class="align-items-end justify-content-center overlay">
-                        <div class="z-depth-1">Calvin Harris</div>
-                    </div>
-                    <img src="res/img/150818-zimmerman-calvin-harris-tease_waufgj.jpg" alt="calvin harris">
-                </a>
-            </div>
-            <div class="image-container">
-                <a href="#">
-                    <div class="align-items-end justify-content-center overlay">
-                        <div class="z-depth-1">Marshmello</div>
-                    </div>
-                    <img src="res/img/Marshmello.png" alt="marshmello">
-                </a>
-
-            </div>
-            <div class="image-container">
-                <a href="#">
-                    <div class="align-items-end justify-content-center overlay">
-                        <div class="z-depth-1">Ummet Ozcan</div>
-                    </div>
-                    <img src="res/img/ummet_ozcan.jpg" alt="ummet ozcan">
-                </a>
-
-            </div>
         </div>
 
+
     </section>
+    <!-- <footer class="footer">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="social-icons">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer> -->
+    <script src="res/js/modalController.js"></script>
+    <script src="res/js/formController.js"></script>
 </body>
 
 </html>
