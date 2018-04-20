@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    <header class="home-header">
+    <header class="home-header z-depth-3">
         <div class="logo-container">
             <img class="logo" src="res/img/logo-white.svg" alt="">
             <h1>MASCARADA</h1>
@@ -71,7 +71,7 @@
             </div>
         </nav>-->
 
-        <nav class="navbar navbar-expand-lg navbar-dark red lighten-3 p-0 no-display" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark red lighten-3 p-0 no-display fixed-top scrolling-navbar" id="main-nav">
             <div class="container">
                 <!-- Navbar logo -->
                 <a class="navbar-brand pr-3" href="index.html">MASCARADA</a>
@@ -109,14 +109,17 @@
         </nav>
 
     </header>
+    <div class="pattern-dot"  id="stickypoint"></div>
 
-    <section class="lineup-section flex-container">
-        <div class="poster z-depth-1-half" id="stickypoint">
+    <section class="lineup-section flex-container z-depth-3">
+        <div class="poster z-depth-1-half">
             <img src="res/img/lineup-poster.png" alt="Mascarada line up poster">
         </div>
     </section>
 
-    <section class="reviews-section">
+    <div class="pattern-dot"></div>
+
+    <section class="reviews-section z-depth-1">
         <div class="row reviews-container">
             <div class="card-columns">
                 <div class="card">
