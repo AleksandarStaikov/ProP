@@ -1,0 +1,10 @@
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\bin\Debug\EntranceAppGui.exe.config
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\bin\Debug\EntranceAppGui.exe
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\bin\Debug\EntranceAppGui.pdb
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.csprojResolveAssemblyReference.cache
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.Form1.resources
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.Properties.Resources.resources
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.csproj.GenerateResource.cache
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.csproj.CoreCompileInputs.cache
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.exe
+C:\Alexander\Semester 2\ProP\EntranceAppGui\EntranceAppGui\obj\Debug\EntranceAppGui.pdb
