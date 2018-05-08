@@ -1,0 +1,3 @@
+﻿1>------ Build started: Project: EventEntrance, Configuration: Debug Any CPU ------
+1>  EventEntrance -> C:\Alexander\Semester 2\ProP\EventEntrance\EventEntrance\EventEntrance\bin\Debug\EventEntrance.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
