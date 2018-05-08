@@ -1,2 +1,0 @@
-# MASCARADA Music Festival
-
