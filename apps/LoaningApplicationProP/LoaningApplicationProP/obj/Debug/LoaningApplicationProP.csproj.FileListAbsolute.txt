@@ -1,0 +1,10 @@
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.exe.config
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.exe
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.pdb
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csprojResolveAssemblyReference.cache
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.Form1.resources
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.Properties.Resources.resources
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.GenerateResource.Cache
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.CoreCompileInputs.cache
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.exe
+C:\VisualStudioProP\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.pdb
