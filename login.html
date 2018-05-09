@@ -29,9 +29,9 @@
     <link rel="stylesheet" href="res/css/style.css">
 </head>
 
-<body>
+<body class="grey lighten-3">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark orange lighten-3 fixed-top scrolling-navbar" id="main-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark blue lighten-3 fixed-top scrolling-navbar" id="main-nav">
             <div class="container">
                 <!-- Navbar logo -->
                 <a class="navbar-brand pr-3" href="index.html">MASCARADA</a>
@@ -99,15 +99,14 @@
                         </div>
 
                         <div class="text-center mb-3">
-                            <button type="button" class="btn btn-indigo btn-block btn-rounded z-depth-1a">Sign in</button>
+                            <button type="button" class="btn brown lighten-2 btn-block btn-rounded z-depth-1a">Sign in</button>
                         </div>
                     </div>
 
                     <!--Footer-->
-                    <div class="modal-footer mx-5 pt-3 mb-1">
-                        <p class="font-small grey-text d-flex justify-content-end">Not a member?
-                            <a href="tickets.html" class="blue-text ml-1"> Sign Up</a>
-                        </p>
+                    <div class="modal-footer mx-5 p-4 mb-1 d-flex justify-content-around">
+                        <span class="grey-text mb-3">No tickets yet?</span> 
+                        <a href="tickets.html" class="blue-text ml-1"><img class="buy-ticket" src="res/img/buy-ticket-red.svg" alt="ticket image"> </a>
                     </div>
 
                 </div>
@@ -118,35 +117,42 @@
 
 
     </section>
-    <!-- <footer class="footer">
-        <div class="row">
-            <div class="col-sm-6">
-                <ul class="social-icons">
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter-square"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-google-plus"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </li>
-                </ul>
+    <footer class="footer d-flex flex-column justify-content-end">
+            <div class="row links">
+                <div class="col-sm-6 d-flex  justify-content-around">
+                    <a href="tickets.html">Buy tickets</a>
+                </div>
+                <div class="col-sm-6 ">
+                    <ul class="social-icons d-flex justify-content-center">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </footer> -->
-    <script src="res/js/modalController.js"></script>
+            <div class="row justify-content-center align-items-end mt-2">
+                <p class="copyright">
+                    Copyright &copy; 2018 by UDown and MusicVite. All rights reserved.
+                </p>
+            </div>
+        </footer>
     <script src="res/js/formController.js"></script>
 </body>
 

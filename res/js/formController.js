@@ -12,17 +12,4 @@ $(document).ready(function() {
         }
         
     })
-
-    var cal = $('#dob').datepicker({
-        showOtherMonths: true
-    })
-
-    $('.gj-icon').on('click', function() {
-        if($(this).css('color') == 'rgb(66, 133, 244)') {
-            $(this).css('color', 'rgba(0, 0, 0, 0.87)');
-        } else {
-            $(this).css('color', 'rgb(66, 133, 244)');
-        }
-        
-    })
 })
