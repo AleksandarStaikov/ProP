@@ -8,3 +8,9 @@ C:\Alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.G
 C:\Alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CoreCompileInputs.cache
 C:\Alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.exe
 C:\Alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.pdb
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\MySql.Data.dll
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\Phidget22.NET.dll
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\MySql.Data.xml
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\Phidget22.NET.pdb
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\Phidget22.NET.xml
+C:\alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CopyComplete
