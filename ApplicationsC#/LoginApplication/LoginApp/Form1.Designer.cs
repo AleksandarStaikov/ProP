@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.turonOnCamera = new System.Windows.Forms.Button();
+            this.startScanning = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.stopScaning = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbRegStatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbNotify = new System.Windows.Forms.Label();
+            this.tmNotification = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -61,9 +63,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 158);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(456, 270);
+            this.pictureBox1.Size = new System.Drawing.Size(789, 405);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -76,25 +78,27 @@
             this.comboBox1.Size = new System.Drawing.Size(456, 21);
             this.comboBox1.TabIndex = 2;
             // 
-            // button1
+            // turonOnCamera
             // 
-            this.button1.Location = new System.Drawing.Point(470, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Turn On The Camera";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.turonOnCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turonOnCamera.Location = new System.Drawing.Point(8, 65);
+            this.turonOnCamera.Name = "turonOnCamera";
+            this.turonOnCamera.Size = new System.Drawing.Size(168, 28);
+            this.turonOnCamera.TabIndex = 3;
+            this.turonOnCamera.Text = "Turn On The Camera";
+            this.turonOnCamera.UseVisualStyleBackColor = true;
+            this.turonOnCamera.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // startScanning
             // 
-            this.button2.Location = new System.Drawing.Point(470, 92);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Start scaning";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.startScanning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startScanning.Location = new System.Drawing.Point(182, 65);
+            this.startScanning.Name = "startScanning";
+            this.startScanning.Size = new System.Drawing.Size(122, 28);
+            this.startScanning.TabIndex = 4;
+            this.startScanning.Text = "Start scaning";
+            this.startScanning.UseVisualStyleBackColor = true;
+            this.startScanning.Click += new System.EventHandler(this.button2_Click);
             // 
             // timer1
             // 
@@ -112,22 +116,24 @@
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(54, 38);
+            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.Location = new System.Drawing.Point(75, 38);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(100, 13);
+            this.lbStatus.Size = new System.Drawing.Size(176, 24);
             this.lbStatus.TabIndex = 6;
             this.lbStatus.Text = "Turn on the camera";
             // 
-            // button3
+            // stopScaning
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(470, 121);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Stop scaning";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.stopScaning.Enabled = false;
+            this.stopScaning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopScaning.Location = new System.Drawing.Point(310, 65);
+            this.stopScaning.Name = "stopScaning";
+            this.stopScaning.Size = new System.Drawing.Size(120, 28);
+            this.stopScaning.TabIndex = 7;
+            this.stopScaning.Text = "Stop scaning";
+            this.stopScaning.UseVisualStyleBackColor = true;
+            this.stopScaning.Click += new System.EventHandler(this.button3_Click);
             // 
             // tabControl1
             // 
@@ -136,23 +142,24 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(612, 371);
+            this.tabControl1.Size = new System.Drawing.Size(816, 595);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbNotify);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.stopScaning);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.lbStatus);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.turonOnCamera);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.startScanning);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(604, 345);
+            this.tabPage1.Size = new System.Drawing.Size(808, 569);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Check In";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -160,9 +167,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(8, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(65, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Status:";
             // 
@@ -182,14 +190,14 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(604, 345);
+            this.tabPage2.Size = new System.Drawing.Size(808, 569);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Purchase";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(262, 269);
+            this.btnRegister.Location = new System.Drawing.Point(120, 234);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 10;
@@ -270,7 +278,7 @@
             this.lbRegStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbRegStatus.AutoSize = true;
             this.lbRegStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRegStatus.Location = new System.Drawing.Point(9, 27);
+            this.lbRegStatus.Location = new System.Drawing.Point(9, 36);
             this.lbRegStatus.Name = "lbRegStatus";
             this.lbRegStatus.Size = new System.Drawing.Size(129, 18);
             this.lbRegStatus.TabIndex = 1;
@@ -287,11 +295,27 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Register a new visitor";
             // 
+            // lbNotify
+            // 
+            this.lbNotify.AutoSize = true;
+            this.lbNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNotify.Location = new System.Drawing.Point(8, 116);
+            this.lbNotify.Name = "lbNotify";
+            this.lbNotify.Size = new System.Drawing.Size(60, 24);
+            this.lbNotify.TabIndex = 9;
+            this.lbNotify.Text = "label4";
+            this.lbNotify.Visible = false;
+            // 
+            // tmNotification
+            // 
+            this.tmNotification.Interval = 2000;
+            this.tmNotification.Tick += new System.EventHandler(this.tmNotification_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 368);
+            this.ClientSize = new System.Drawing.Size(812, 591);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -311,12 +335,12 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button turonOnCamera;
+        private System.Windows.Forms.Button startScanning;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbStatus;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button stopScaning;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -332,6 +356,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbRegStatus;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbNotify;
+        private System.Windows.Forms.Timer tmNotification;
     }
 }
 

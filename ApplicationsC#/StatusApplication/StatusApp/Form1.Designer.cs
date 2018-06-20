@@ -45,6 +45,12 @@
             this.lbMoneyForLoaning = new System.Windows.Forms.Label();
             this.lbLoanedMaterial = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbUpdated = new System.Windows.Forms.Label();
+            this.grAtendees = new System.Windows.Forms.DataGridView();
+            this.grMoney = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.grAtendees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grMoney)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Location = new System.Drawing.Point(12, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 26);
             this.label2.TabIndex = 1;
@@ -71,7 +77,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 102);
+            this.label3.Location = new System.Drawing.Point(592, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 26);
             this.label3.TabIndex = 2;
@@ -81,7 +87,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 133);
+            this.label4.Location = new System.Drawing.Point(12, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(214, 26);
             this.label4.TabIndex = 3;
@@ -91,7 +97,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 164);
+            this.label5.Location = new System.Drawing.Point(12, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(205, 26);
             this.label5.TabIndex = 4;
@@ -101,7 +107,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 195);
+            this.label6.Location = new System.Drawing.Point(571, 221);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(225, 26);
             this.label6.TabIndex = 5;
@@ -111,7 +117,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 226);
+            this.label7.Location = new System.Drawing.Point(12, 274);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(243, 26);
             this.label7.TabIndex = 6;
@@ -121,7 +127,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 257);
+            this.label8.Location = new System.Drawing.Point(12, 305);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(220, 26);
             this.label8.TabIndex = 7;
@@ -131,7 +137,7 @@
             // 
             this.lbTickets.AutoSize = true;
             this.lbTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTickets.Location = new System.Drawing.Point(334, 80);
+            this.lbTickets.Location = new System.Drawing.Point(334, 128);
             this.lbTickets.Name = "lbTickets";
             this.lbTickets.Size = new System.Drawing.Size(60, 24);
             this.lbTickets.TabIndex = 8;
@@ -142,7 +148,7 @@
             // 
             this.lbAttendees.AutoSize = true;
             this.lbAttendees.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAttendees.Location = new System.Drawing.Point(334, 111);
+            this.lbAttendees.Location = new System.Drawing.Point(334, 159);
             this.lbAttendees.Name = "lbAttendees";
             this.lbAttendees.Size = new System.Drawing.Size(70, 24);
             this.lbAttendees.TabIndex = 9;
@@ -153,7 +159,7 @@
             // 
             this.lbPurchasedItem.AutoSize = true;
             this.lbPurchasedItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPurchasedItem.Location = new System.Drawing.Point(334, 142);
+            this.lbPurchasedItem.Location = new System.Drawing.Point(334, 190);
             this.lbPurchasedItem.Name = "lbPurchasedItem";
             this.lbPurchasedItem.Size = new System.Drawing.Size(70, 24);
             this.lbPurchasedItem.TabIndex = 10;
@@ -164,7 +170,7 @@
             // 
             this.lbPrefferedStore.AutoSize = true;
             this.lbPrefferedStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrefferedStore.Location = new System.Drawing.Point(334, 173);
+            this.lbPrefferedStore.Location = new System.Drawing.Point(334, 221);
             this.lbPrefferedStore.Name = "lbPrefferedStore";
             this.lbPrefferedStore.Size = new System.Drawing.Size(70, 24);
             this.lbPrefferedStore.TabIndex = 11;
@@ -175,7 +181,7 @@
             // 
             this.lbMoneyAtStores.AutoSize = true;
             this.lbMoneyAtStores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMoneyAtStores.Location = new System.Drawing.Point(334, 204);
+            this.lbMoneyAtStores.Location = new System.Drawing.Point(334, 252);
             this.lbMoneyAtStores.Name = "lbMoneyAtStores";
             this.lbMoneyAtStores.Size = new System.Drawing.Size(70, 24);
             this.lbMoneyAtStores.TabIndex = 12;
@@ -186,7 +192,7 @@
             // 
             this.lbMoneyForLoaning.AutoSize = true;
             this.lbMoneyForLoaning.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMoneyForLoaning.Location = new System.Drawing.Point(334, 235);
+            this.lbMoneyForLoaning.Location = new System.Drawing.Point(334, 283);
             this.lbMoneyForLoaning.Name = "lbMoneyForLoaning";
             this.lbMoneyForLoaning.Size = new System.Drawing.Size(70, 24);
             this.lbMoneyForLoaning.TabIndex = 13;
@@ -197,7 +203,7 @@
             // 
             this.lbLoanedMaterial.AutoSize = true;
             this.lbLoanedMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLoanedMaterial.Location = new System.Drawing.Point(334, 266);
+            this.lbLoanedMaterial.Location = new System.Drawing.Point(334, 314);
             this.lbLoanedMaterial.Name = "lbLoanedMaterial";
             this.lbLoanedMaterial.Size = new System.Drawing.Size(70, 24);
             this.lbLoanedMaterial.TabIndex = 14;
@@ -208,11 +214,61 @@
             // 
             this.timer1.Interval = 5000;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(106, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(149, 22);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Last updated on: ";
+            // 
+            // lbUpdated
+            // 
+            this.lbUpdated.AutoSize = true;
+            this.lbUpdated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUpdated.Location = new System.Drawing.Point(261, 53);
+            this.lbUpdated.Name = "lbUpdated";
+            this.lbUpdated.Size = new System.Drawing.Size(68, 22);
+            this.lbUpdated.TabIndex = 16;
+            this.lbUpdated.Text = "label10";
+            // 
+            // grAtendees
+            // 
+            this.grAtendees.AllowUserToAddRows = false;
+            this.grAtendees.AllowUserToDeleteRows = false;
+            this.grAtendees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grAtendees.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grAtendees.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grAtendees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grAtendees.Location = new System.Drawing.Point(560, 119);
+            this.grAtendees.Name = "grAtendees";
+            this.grAtendees.Size = new System.Drawing.Size(246, 93);
+            this.grAtendees.TabIndex = 17;
+            // 
+            // grMoney
+            // 
+            this.grMoney.AllowUserToAddRows = false;
+            this.grMoney.AllowUserToDeleteRows = false;
+            this.grMoney.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grMoney.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grMoney.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grMoney.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grMoney.Location = new System.Drawing.Point(560, 250);
+            this.grMoney.Name = "grMoney";
+            this.grMoney.Size = new System.Drawing.Size(246, 93);
+            this.grMoney.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 338);
+            this.ClientSize = new System.Drawing.Size(880, 403);
+            this.Controls.Add(this.grMoney);
+            this.Controls.Add(this.grAtendees);
+            this.Controls.Add(this.lbUpdated);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lbLoanedMaterial);
             this.Controls.Add(this.lbMoneyForLoaning);
             this.Controls.Add(this.lbMoneyAtStores);
@@ -232,6 +288,8 @@
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grAtendees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grMoney)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +313,10 @@
         private System.Windows.Forms.Label lbMoneyForLoaning;
         private System.Windows.Forms.Label lbLoanedMaterial;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbUpdated;
+        private System.Windows.Forms.DataGridView grAtendees;
+        private System.Windows.Forms.DataGridView grMoney;
     }
 }
 

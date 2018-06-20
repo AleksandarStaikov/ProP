@@ -1,11 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using Phidget22;
-using Phidget22.Events;
-
-namespace LoginApp
+﻿namespace LoginApp
 {
+    using System;
+    using Phidget22;
+    using Phidget22.Events;
+
     public class RFIDManager
     {
         public RFID rfid;
