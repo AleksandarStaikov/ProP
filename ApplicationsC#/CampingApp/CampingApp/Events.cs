@@ -28,10 +28,6 @@ namespace CampingApp
                     {
                         listOfVisitors.Add(v);
                     }
-                    else
-                    {
-                        throw new MyException("Already checked!");
-                    }
                 }
             }
             else
@@ -39,20 +35,7 @@ namespace CampingApp
                 listOfVisitors.Add(v);
             }
         }
-        public void RemoveVisitor(Visitor v)
-        {
-            foreach (Visitor vs in listOfVisitors)
-            {
-                if (vs.VisitorID == v.VisitorID)
-                {
-                    listOfVisitors.Remove(v);
-                }
-                else
-                {
-                    throw new MyException("The visitor is already checked out!");
-                }
-            }
-        }
+
         public void AddFreeSpots(FreeSpots s)
         {
             listOfSpots.Add(s);

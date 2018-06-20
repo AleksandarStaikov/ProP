@@ -14,3 +14,15 @@ C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\MySql.Data.xml
 C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\Phidget22.NET.pdb
 C:\alexander\Semester 2\ProP\CampingApp\CampingApp\bin\Debug\Phidget22.NET.xml
 C:\alexander\Semester 2\ProP\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CopyComplete
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.exe.config
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.exe
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.pdb
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\MySql.Data.xml
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csprojResolveAssemblyReference.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.Form1.resources
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.Properties.Resources.resources
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.GenerateResource.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CoreCompileInputs.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CopyComplete
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.exe
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.pdb
