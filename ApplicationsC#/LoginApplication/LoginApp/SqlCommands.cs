@@ -39,14 +39,21 @@ namespace LoginApp
 
         public static string RegisterNewVisitor(RegistrationVisitor visitor)
         {
-            return $"INSERT INTO tickets_visitor (first_name, last_name, email, rfid_code, birth_date, event_money) " +
-                   $"values('{visitor.FirstName}', '{visitor.LastName}', '{visitor.Email}', '{visitor.RFID}', '{visitor.BirthDate.ToString("yyyy-MM-dd")}', 0)";
+            return $"INSERT INTO tickets_visitor (first_name, last_name, email, rfid_code, birth_date, event_money, checked_in) " +
+                   $"values('{visitor.FirstName}', '{visitor.LastName}', '{visitor.Email}', '{visitor.RFID}', '{visitor.BirthDate.ToString("yyyy-MM-dd")}', 0, {true})";
         }
 
         public static string CheckIfRfidExists(string rfidTag)
         {
-            return $"SELECT id " +
+            return $"SELECT checked_in " +
                    $"FROM tickets_visitor " +
+                   $"WHERE rfid_code = '{rfidTag}'";
+        }
+
+        public static string CheckInVisitor(string rfidTag)
+        {
+            return $"UPDATE tickets_visitor " +
+                   $"SET checked_in = {true} " +
                    $"WHERE rfid_code = '{rfidTag}'";
         }
     }

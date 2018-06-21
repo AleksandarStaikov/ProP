@@ -214,7 +214,7 @@ namespace LoginApp
                 {
                     this.lbRegStatus.Text = "RFID braclet tagged, please wait!";
                     this.registrationVisitor.RFID = rfidTag;
- 
+
                     var query = SqlCommands.RegisterNewVisitor(this.registrationVisitor);
                     var command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
@@ -253,10 +253,22 @@ namespace LoginApp
                     var command = new MySqlCommand(query, connection);
                     var result = command.ExecuteScalar();
 
+                    
                     if (result != null)
                     {
-                        this.lbStatus.Text = "Scan QR code or RFID bracelet!";
-                        this.Notify("Check-in successful!");
+                        if (((bool)result) == true)
+                        {
+                            this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                            this.Notify("This RFID was already checked in, please check out first.");
+                        }
+                        else
+                        {
+                            var updateQuery = SqlCommands.CheckInVisitor(rfidTag);
+                            var updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.ExecuteNonQuery();
+                            this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                            this.Notify("Check-in successful!");
+                        }
                     }
                     else
                     {
