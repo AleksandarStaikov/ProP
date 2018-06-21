@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StatusApp.Models
+﻿namespace StatusApp.Models
 {
+    using System;
+
     public class AtendeesForADay
     {
         public AtendeesForADay(DateTime date, int atendees)

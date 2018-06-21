@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-using StatusApp.Models;
-
-namespace StatusApp
+﻿namespace StatusApp
 {
+    using System;
+    using System.Collections.Generic;
+    using MySql.Data.MySqlClient;
+    using StatusApp.Models;
+
     public class SqlManager
     {
         public MySqlConnection connection { get; set; }
@@ -127,7 +123,7 @@ namespace StatusApp
                         $"INNER JOIN others_item i " +
                             $" ON h.item_id = i.id " +
                         $"INNER JOIN others_purchase p " +
-                            $"ON p.order_id = o.id " +
+                            $"ON o.purchase_id = p.id " +
                         $"GROUP BY CAST(p.time AS DATE)";
             MySqlCommand command = new MySqlCommand(query, connection);
             using (var reader = command.ExecuteReader())
@@ -140,9 +136,22 @@ namespace StatusApp
             return dates;   
         }
 
-        public void NotReturnedItems()
+        public List<CurrentlyNotReturnedItems> NotReturnedItems()
         {
-            var query = $"";
+            var items = new List<CurrentlyNotReturnedItems>();
+            var query = $"SELECT name, COUNT(id) as count " +
+                        $"FROM `others_loanitem` " +
+                        $"WHERE status<> 'A' " +
+                        $"GROUP BY name";
+            var command = new MySqlCommand(query, connection);
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    items.Add(new CurrentlyNotReturnedItems(reader["name"].ToString(), int.Parse(reader["count"].ToString())));
+                }
+            }
+            return items;
         }
 
         private string NormalizeRezult(object input)
