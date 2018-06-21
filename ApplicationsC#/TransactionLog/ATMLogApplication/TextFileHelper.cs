@@ -22,44 +22,6 @@
 
         public string FileName { get; set; }
 
-
-        public bool SaveToFile(List<string> lines)
-        {
-            FileStream fs = null;
-            StreamWriter sw = null;
-
-            try
-            {
-                fs = new FileStream(this.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-                sw = new StreamWriter(fs);
-
-                foreach (var line in lines)
-                {
-                    if (line != string.Empty)
-                    {
-                        sw.WriteLine(line);
-                    }
-                }
-                return true;
-            }
-            catch (IOException ex)
-            {
-                return false;
-            }
-            finally
-            {
-                if (sw != null)
-                {
-                    sw.Close();
-                }
-
-                if (fs != null)
-                {
-                    fs.Close();
-                }
-            }
-        }
-
         public Log ReadFromFile()
         {
             FileStream fs = null;
@@ -82,7 +44,12 @@
                     int transactions = int.Parse(sr.ReadLine());
                     for (int i = 0; i < transactions; i++)
                     {
-                        var pair = sr.ReadLine().Split(' ');
+                        line = sr.ReadLine();
+                        if (string.IsNullOrEmpty(line))
+                        {
+                            throw new Exception("The number of recods provided in the file was lower than the actual number of records");
+                        }
+                        var pair = line.Split(' ');
                         log.Transactions.Add(new Transaction(int.Parse(pair[0]), double.Parse(pair[1])));
                     }
                 }
@@ -105,28 +72,6 @@
             }
 
             return log;
-        }
-
-        public void BinarySave(List<string> lines)
-        {
-            FileStream fs = new FileStream(this.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-            BinaryFormatter bf = new BinaryFormatter();
-
-            bf.Serialize(fs, lines);
-
-            fs.Close();
-        }
-
-        public List<string> BinaryRead()
-        {
-            FileStream fs = new FileStream(this.FileName, FileMode.OpenOrCreate, FileAccess.Read);
-            BinaryFormatter bf = new BinaryFormatter();
-
-            var lines = (List<string>)bf.Deserialize(fs);
-
-            fs.Close();
-
-            return lines;
         }
     }
 }

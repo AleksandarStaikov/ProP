@@ -23,12 +23,12 @@ namespace ATMLogApplication
         TextFileHelper stream;
         MySqlConnection connection;
         SQLManager sqlManager;
-        string initialFileName = "MyTextFile.txt";
+        string filename = string.Empty;
 
         public Form1()
         {
             InitializeComponent();
-            stream = new TextFileHelper(initialFileName);
+            stream = new TextFileHelper(filename);
             connection = new MySqlConnection(connectionString);
             sqlManager = new SQLManager(connection);
         }
@@ -39,28 +39,60 @@ namespace ATMLogApplication
 
             browser.Filter = "Text files (*.txt)|*.txt";
             browser.RestoreDirectory = true;
-            browser.InitialDirectory = initialFileName;
+            browser.InitialDirectory = filename;
 
             if (browser.ShowDialog() == DialogResult.OK)
             {
+                filename = browser.FileName;
                 lbFileName.Text = browser.FileName;
                 stream.FileName = browser.FileName;
+                lbStatus.Text = "Transaction file selected, run transacions or choose another file";
+                lbUpdated.Items.Clear();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var log = this.stream.ReadFromFile();
-            var logId = this.sqlManager.AddTransactionLog(log);
-            foreach (var transaction in log.Transactions)
+            if (!string.IsNullOrEmpty(filename))
             {
-                this.sqlManager.AddTransaction(transaction, logId);
+                try
+                {
+                    lbStatus.Text = "Running transactions";
+                    var log = this.stream.ReadFromFile();
+                    var logId = this.sqlManager.AddTransactionLog(log);
+                    foreach (var transaction in log.Transactions)
+                    {
+                        try
+                        {
+                            this.sqlManager.AddTransaction(transaction, logId);
+                            this.lbUpdated.Items.Add(transaction.ToString());
+                        }
+                        catch (Exception transactionEx)
+                        {
+                            MessageBox.Show(transactionEx.Message);
+                            this.lbUpdated.Items.Add(transaction.TransactionFailedString());
+                        }
+                    }
+                    lbStatus.Text = "Transactions runned successfully";
+                }
+                catch (Exception ex)
+                {
+                    lbStatus.Text = "Running transactions failed";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a file first");
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.connection.Open();
+            lbFileName.Text = filename;
+            lbStatus.Text = "Select a transaction file";
+            lbUpdated.AutoSize = true;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

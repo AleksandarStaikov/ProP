@@ -11,11 +11,23 @@ namespace ATMLogApplication.Models
         public Transaction(int visitorId, double money)
         {
             this.VisitorId = visitorId;
-            this.Money = money;
+            this.Increasment = money;
         }
 
         public int VisitorId { get; set; }
 
-        public double Money { get; set; }
+        public double Increasment { get; set; }
+
+        public double InitialBalance { get; set; }
+
+        public override string ToString()
+        {
+            return $"Visitor {VisitorId}, had {InitialBalance}, now has {InitialBalance + Increasment}";
+        }
+
+        public string TransactionFailedString()
+        {
+            return $"Transaction for id {VisitorId} FAILED";
+        }
     }
 }

@@ -29,16 +29,33 @@ namespace ATMLogApplication
 
         public void AddTransaction(Transaction transaction, long LogId)
         {
-            var query = $"INSERT INTO `others_deposit`(`amount`, `atm_log_id`, `visitor_id`) " +
-                        $"VALUES ('{transaction.Money}', '{LogId}', '{transaction.VisitorId}')";
-            var command = new MySqlCommand(query, Connection);
-            command.ExecuteNonQuery();
+            try
+            {
+                var query = $"INSERT INTO `others_deposit`(`amount`, `atm_log_id`, `visitor_id`) " +
+                        $"VALUES ('{transaction.Increasment}', '{LogId}', '{transaction.VisitorId}')";
+                var command = new MySqlCommand(query, Connection);
+                command.ExecuteNonQuery();
 
-            var updateQuery = $"UPDATE `tickets_visitor` " +
-                              $"SET `event_money` = `event_money` + {transaction.Money} " +
+                var selectQuery = $"SELECT `event_money` " +
+                                  $"FROM `tickets_visitor` " +
+                                  $"WHERE `id` = '{transaction.VisitorId}'";
+                var selectCommand = new MySqlCommand(selectQuery, Connection);
+                transaction.InitialBalance = double.Parse(selectCommand.ExecuteScalar().ToString());
+
+                var updateQuery = $"UPDATE `tickets_visitor` " +
+                              $"SET `event_money` = `event_money` + {transaction.Increasment} " +
                               $"WHERE `id` = '{transaction.VisitorId}'";
-            var updateCommand = new MySqlCommand(updateQuery, Connection);
-            updateCommand.ExecuteNonQuery();
+                var updateCommand = new MySqlCommand(updateQuery, Connection);
+                updateCommand.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                if (ex.Message.Contains("a foreign key constraint fails"))
+                {
+                    throw new Exception($"A visitor with Id {transaction.VisitorId} was not found");
+                }
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
