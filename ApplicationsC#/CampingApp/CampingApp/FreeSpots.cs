@@ -24,7 +24,7 @@ namespace CampingApp
                 }
                 else
                 {
-                    throw new MyException("You can enter camping number between 0 and 48");
+                    throw new MyException("You must choose camping number between 0 and 48");
                 }
             }
         }
@@ -42,7 +42,7 @@ namespace CampingApp
                 }
                 else
                 {
-                    throw new MyException("You can enter sppot number between 0 and 6");
+                    throw new MyException("You must choose sppot number between 0 and 6");
                 }
             }
         }
