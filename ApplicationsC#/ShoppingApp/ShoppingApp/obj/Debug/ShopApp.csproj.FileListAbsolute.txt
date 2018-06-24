@@ -1,0 +1,10 @@
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\bin\Debug\EntranceAppGui.exe.config
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\bin\Debug\EntranceAppGui.exe
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\bin\Debug\EntranceAppGui.pdb
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\ShopApp.csprojAssemblyReference.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.Form1.resources
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.Properties.Resources.resources
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\ShopApp.csproj.GenerateResource.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\ShopApp.csproj.CoreCompileInputs.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.exe
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.pdb

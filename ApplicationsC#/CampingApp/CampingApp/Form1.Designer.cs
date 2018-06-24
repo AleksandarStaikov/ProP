@@ -58,6 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.buttonTent = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPageCheckIn.SuspendLayout();
             this.tabPageReserve.SuspendLayout();
@@ -73,7 +74,7 @@
             this.tabControl1.Controls.Add(this.tabPageAddTent);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(92, 27);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 67);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
@@ -82,7 +83,7 @@
             // 
             // tabPageCheckIn
             // 
-            this.tabPageCheckIn.BackColor = System.Drawing.Color.LightBlue;
+            this.tabPageCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(167)))), ((int)(((byte)(106)))));
             this.tabPageCheckIn.Controls.Add(this.labelstats);
             this.tabPageCheckIn.Controls.Add(this.buttonReserve);
             this.tabPageCheckIn.Controls.Add(this.buttonADDTent);
@@ -467,13 +468,24 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(137)))), ((int)(((byte)(167)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 33);
+            this.panel1.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(1082, 596);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
+            this.ClientSize = new System.Drawing.Size(1082, 651);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -522,6 +534,7 @@
         private System.Windows.Forms.ComboBox comboBoxTentSize;
         private System.Windows.Forms.ComboBox comboBoxSpotNo;
         private System.Windows.Forms.ComboBox comboBoxCampNo;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
