@@ -26,6 +26,7 @@ namespace CampingAppCheckOut
             connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456";
             rfidManager = new RfidManager();
             labelHint.Text = "Press CHECKOUT button!";
+            
         }
         public void RFIDcheckOut(string rfidTag)
         {
@@ -97,5 +98,12 @@ namespace CampingAppCheckOut
             labelHint.Text = "Press CHECKOUT button!";
         }
     }
-}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            tabControl1.Location = (new Point(ClientSize.Width / 2 - tabControl1.Width / 2,
+                                    ClientSize.Height / 2 - tabControl1.Height / 2));
+            tabControl1.Anchor = AnchorStyles.None;
+        }
+    }
 }

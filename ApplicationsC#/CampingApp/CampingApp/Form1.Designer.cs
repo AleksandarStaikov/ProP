@@ -71,13 +71,14 @@
             this.tabControl1.Controls.Add(this.tabPageCheckIn);
             this.tabControl1.Controls.Add(this.tabPageReserve);
             this.tabControl1.Controls.Add(this.tabPageAddTent);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(92, 27);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(1058, 572);
+            this.tabControl1.Size = new System.Drawing.Size(1082, 596);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPageCheckIn
@@ -91,7 +92,7 @@
             this.tabPageCheckIn.Location = new System.Drawing.Point(4, 31);
             this.tabPageCheckIn.Name = "tabPageCheckIn";
             this.tabPageCheckIn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCheckIn.Size = new System.Drawing.Size(1050, 537);
+            this.tabPageCheckIn.Size = new System.Drawing.Size(1074, 561);
             this.tabPageCheckIn.TabIndex = 0;
             this.tabPageCheckIn.Text = "CHECKIN";
             // 
@@ -167,7 +168,7 @@
             this.tabPageReserve.Location = new System.Drawing.Point(4, 31);
             this.tabPageReserve.Name = "tabPageReserve";
             this.tabPageReserve.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageReserve.Size = new System.Drawing.Size(1050, 537);
+            this.tabPageReserve.Size = new System.Drawing.Size(1074, 561);
             this.tabPageReserve.TabIndex = 1;
             this.tabPageReserve.Text = "RESERVE";
             // 
@@ -188,6 +189,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.BackColor = System.Drawing.Color.LemonChiffon;
             this.groupBox4.Controls.Add(this.comboBoxTentSize);
             this.groupBox4.Controls.Add(this.comboBoxSpotNo);
@@ -199,12 +201,13 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(7, 7);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(1036, 424);
+            this.groupBox4.Size = new System.Drawing.Size(1068, 555);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Reservation on the spot";
@@ -368,17 +371,18 @@
             // 
             // tabPageAddTent
             // 
-            this.tabPageAddTent.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tabPageAddTent.BackColor = System.Drawing.Color.LightBlue;
             this.tabPageAddTent.Controls.Add(this.groupBox1);
             this.tabPageAddTent.Location = new System.Drawing.Point(4, 31);
             this.tabPageAddTent.Name = "tabPageAddTent";
             this.tabPageAddTent.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddTent.Size = new System.Drawing.Size(1050, 537);
+            this.tabPageAddTent.Size = new System.Drawing.Size(1074, 561);
             this.tabPageAddTent.TabIndex = 2;
             this.tabPageAddTent.Text = "ADD TENT";
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.Color.LemonChiffon;
             this.groupBox1.Controls.Add(this.cbAddTentOnly);
             this.groupBox1.Controls.Add(this.label6);
@@ -386,10 +390,11 @@
             this.groupBox1.Controls.Add(this.Status);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.buttonTent);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1038, 195);
+            this.groupBox1.Size = new System.Drawing.Size(1068, 555);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ADD TENT";
@@ -476,6 +481,7 @@
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
