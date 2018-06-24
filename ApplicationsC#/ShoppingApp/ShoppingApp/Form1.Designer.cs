@@ -32,7 +32,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.lsbAllOrder = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -73,7 +72,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lsbTakeDrinks = new System.Windows.Forms.ListBox();
             this.groupBoxVisitorInfo = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbBalance = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -100,7 +98,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud1)).BeginInit();
             this.groupBoxVisitorInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -145,10 +142,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Location = new System.Drawing.Point(842, 104);
+            this.panel3.Location = new System.Drawing.Point(828, 104);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(417, 346);
+            this.panel3.Size = new System.Drawing.Size(431, 346);
             this.panel3.TabIndex = 7;
             // 
             // button6
@@ -158,30 +154,14 @@
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(4, 30);
+            this.button6.Location = new System.Drawing.Point(4, 123);
             this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(395, 97);
+            this.button6.Size = new System.Drawing.Size(423, 97);
             this.button6.TabIndex = 5;
             this.button6.Text = "Complete order";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(4, 182);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(395, 100);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Give a receipt";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label18
             // 
@@ -355,7 +335,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(258, 107);
             this.button4.TabIndex = 5;
-            this.button4.Text = "ADD >>>>>";
+            this.button4.Text = "ADD";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -394,9 +374,19 @@
             this.nud2.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nud2.Location = new System.Drawing.Point(131, 46);
             this.nud2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nud2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nud2.Name = "nud2";
             this.nud2.Size = new System.Drawing.Size(123, 35);
             this.nud2.TabIndex = 9;
+            this.nud2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // button3
             // 
@@ -424,7 +414,7 @@
             this.lsbHaveFood.ForeColor = System.Drawing.Color.White;
             this.lsbHaveFood.FormattingEnabled = true;
             this.lsbHaveFood.ItemHeight = 29;
-            this.lsbHaveFood.Location = new System.Drawing.Point(933, 75);
+            this.lsbHaveFood.Location = new System.Drawing.Point(965, 75);
             this.lsbHaveFood.Margin = new System.Windows.Forms.Padding(4);
             this.lsbHaveFood.Name = "lsbHaveFood";
             this.lsbHaveFood.Size = new System.Drawing.Size(526, 377);
@@ -470,7 +460,6 @@
             this.lsbTakeFood.Name = "lsbTakeFood";
             this.lsbTakeFood.Size = new System.Drawing.Size(526, 377);
             this.lsbTakeFood.TabIndex = 1;
-            this.lsbTakeFood.SelectedIndexChanged += new System.EventHandler(this.lsbTakeFood_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -503,7 +492,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(355, 177);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lbBalance2
             // 
@@ -516,7 +504,6 @@
             this.lbBalance2.Size = new System.Drawing.Size(268, 30);
             this.lbBalance2.TabIndex = 3;
             this.lbBalance2.Text = "Visitor balance";
-            this.lbBalance2.Click += new System.EventHandler(this.lbBalance2_Click);
             // 
             // lbName2
             // 
@@ -649,7 +636,7 @@
             this.btnChoseShop.Name = "btnChoseShop";
             this.btnChoseShop.Size = new System.Drawing.Size(257, 107);
             this.btnChoseShop.TabIndex = 10;
-            this.btnChoseShop.Text = "Chose Shop";
+            this.btnChoseShop.Text = "Choose Shop";
             this.btnChoseShop.UseVisualStyleBackColor = false;
             this.btnChoseShop.Click += new System.EventHandler(this.btnChoseShop_Click);
             // 
@@ -666,7 +653,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(257, 90);
             this.button1.TabIndex = 5;
-            this.button1.Text = "ADD >>>>>";
+            this.button1.Text = "ADD";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -678,9 +665,19 @@
             this.nud1.ForeColor = System.Drawing.Color.Black;
             this.nud1.Location = new System.Drawing.Point(51, 32);
             this.nud1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nud1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nud1.Name = "nud1";
             this.nud1.Size = new System.Drawing.Size(259, 35);
             this.nud1.TabIndex = 7;
+            this.nud1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // button2
             // 
@@ -709,7 +706,7 @@
             this.lsbHaveDrinks.ForeColor = System.Drawing.Color.White;
             this.lsbHaveDrinks.FormattingEnabled = true;
             this.lsbHaveDrinks.ItemHeight = 29;
-            this.lsbHaveDrinks.Location = new System.Drawing.Point(945, 78);
+            this.lsbHaveDrinks.Location = new System.Drawing.Point(962, 78);
             this.lsbHaveDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.lsbHaveDrinks.Name = "lsbHaveDrinks";
             this.lsbHaveDrinks.Size = new System.Drawing.Size(528, 319);
@@ -728,7 +725,6 @@
             this.label6.Size = new System.Drawing.Size(268, 30);
             this.label6.TabIndex = 3;
             this.label6.Text = "Selected drinks";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -758,7 +754,6 @@
             this.lsbTakeDrinks.Name = "lsbTakeDrinks";
             this.lsbTakeDrinks.Size = new System.Drawing.Size(528, 319);
             this.lsbTakeDrinks.TabIndex = 1;
-            this.lsbTakeDrinks.SelectedIndexChanged += new System.EventHandler(this.lsbTakeDrinks_SelectedIndexChanged);
             // 
             // groupBoxVisitorInfo
             // 
@@ -766,7 +761,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxVisitorInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(42)))), ((int)(((byte)(61)))));
-            this.groupBoxVisitorInfo.Controls.Add(this.pictureBox1);
             this.groupBoxVisitorInfo.Controls.Add(this.lbBalance);
             this.groupBoxVisitorInfo.Controls.Add(this.lbName);
             this.groupBoxVisitorInfo.Controls.Add(this.label2);
@@ -783,18 +777,6 @@
             this.groupBoxVisitorInfo.TabStop = false;
             this.groupBoxVisitorInfo.Text = "Visitor Info";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(1130, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(355, 177);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // lbBalance
             // 
             this.lbBalance.AutoSize = true;
@@ -807,7 +789,6 @@
             this.lbBalance.Size = new System.Drawing.Size(268, 30);
             this.lbBalance.TabIndex = 3;
             this.lbBalance.Text = "Visitor balance";
-            this.lbBalance.Click += new System.EventHandler(this.lbBalance_Click);
             // 
             // lbName
             // 
@@ -880,45 +861,47 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1506, 47);
             this.panel4.TabIndex = 1;
-            this.panel4.Click += new System.EventHandler(this.panel4_Click);
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
+            this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             // 
             // button9
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Dock = System.Windows.Forms.DockStyle.Right;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(1265, 0);
+            this.button9.Image = global::EntranceAppGui.Properties.Resources.Minimize_16x_w;
+            this.button9.Location = new System.Drawing.Point(1281, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 47);
             this.button9.TabIndex = 2;
-            this.button9.Text = "_";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
+            this.button8.Dock = System.Windows.Forms.DockStyle.Right;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(1346, 0);
+            this.button8.Image = global::EntranceAppGui.Properties.Resources.ApplicationGroup_16x_w;
+            this.button8.Location = new System.Drawing.Point(1356, 0);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 47);
             this.button8.TabIndex = 1;
-            this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.Dock = System.Windows.Forms.DockStyle.Right;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(1427, 0);
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Image = global::EntranceAppGui.Properties.Resources.Close_WhiteNoHalo_16x;
+            this.button7.Location = new System.Drawing.Point(1431, 0);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 47);
             this.button7.TabIndex = 0;
-            this.button7.Text = "X";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -934,6 +917,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = " ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.tabPage3.ResumeLayout(false);
@@ -961,7 +945,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud1)).EndInit();
             this.groupBoxVisitorInfo.ResumeLayout(false);
             this.groupBoxVisitorInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -972,7 +955,6 @@
 
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ListBox lsbAllOrder;
@@ -1012,7 +994,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lsbTakeDrinks;
         private System.Windows.Forms.GroupBox groupBoxVisitorInfo;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbBalance;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label label2;

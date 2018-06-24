@@ -63,6 +63,16 @@ namespace EntranceAppGui.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ApplicationGroup_16x_w {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationGroup_16x_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Backgroun5 {
             get {
                 object obj = ResourceManager.GetObject("Backgroun5", resourceCulture);
@@ -86,6 +96,36 @@ namespace EntranceAppGui.Properties {
         internal static System.Drawing.Bitmap Background3 {
             get {
                 object obj = ResourceManager.GetObject("Background3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Close_WhiteNoHalo_16x {
+            get {
+                object obj = ResourceManager.GetObject("Close_WhiteNoHalo_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Minimize_16x {
+            get {
+                object obj = ResourceManager.GetObject("Minimize_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Minimize_16x_w {
+            get {
+                object obj = ResourceManager.GetObject("Minimize_16x_w", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
