@@ -61,6 +61,12 @@
     </Compile>
     <Compile Include="CommentedMethods.cs" />
     <Compile Include="DatabaseInteraction.cs" />
+    <Compile Include="FoodTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodTab.Designer.cs">
+      <DependentUpon>FoodTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <EmbeddedResource Include="ChoseShop.resx">
       <DependentUpon>ChoseShop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FoodTab.resx">
+      <DependentUpon>FoodTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -100,6 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backgroun5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
