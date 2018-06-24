@@ -31,7 +31,7 @@ namespace CampingApp
             connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456";
             ev = new Events();
             rfidManager = new RfidManager();
-            labelInfo.Text = "Press CheckIN!";
+            labelInfo.Text = "Press CHECKIN!";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace CampingApp
         {
             MessageBox.Show(e.Tag);
         }
-        
+
         public void RFIDcheckIn(string rfidTag)
         {
             if (labelInfo.InvokeRequired)
@@ -86,20 +86,27 @@ namespace CampingApp
 
                         cmd = new MySqlCommand(displayQuery, connection);
                         MySqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
+                        if (reader.Read() == true)
                         {
                             if (reader[6].ToString() != "")
                             {
                                 ev.AddVisitor(new Visitor() { FisrtName = (string)reader[2], LastName = (string)reader[3], ID = (int)reader[1], Rfid = (string)reader[0] });
-                                labelInfo.Text = "Check In Successful";
-
+                                timer1.Enabled = true;
+                                timer1.Start();
+                                labelstats.Text = "Check In Successful! You can proceed!";
                             }
                             else
                             {
-                                MessageBox.Show("Check In Unsuccessful! Please make a reservation!");
-
+                                timer1.Enabled = true;
+                                timer1.Start();
+                                labelstats.Text = "Check In Unsuccessful! Please make a reservation!";
                             }
+                        }
+                        else
+                        {
+                            timer1.Enabled = true;
+                            timer1.Start();
+                            MessageBox.Show("Not existing rfid tag!");
                         }
                     }
                 }
@@ -109,96 +116,9 @@ namespace CampingApp
                 }
             }
             rfidManager.tagFound -= RFIDcheckIn;
-            labelInfo.Text = "";
         }
-        //public void RFIDcheckOut(object sender, RFIDTagEventArgs e)
-        //{
-        //    try
-        //    {
-        //        using (MySqlConnection connection = new MySqlConnection(connectionString))
-        //        {
+        //
 
-        //            visitorTag = e.Tag;
-        //            connection.Open();
-
-        //            string displayQueryCheckOut = "SELECT tickets_visitor.rfid_code, tickets_visitor.id, tickets_visitor.first_name, " +
-        //                                  "tickets_visitor.last_name, camping_spot.camping_id, camping_tent.size, " +
-        //                                  "camping_reservation.id, camping_reservation.tent_id, camping_reservation.date_left " +
-        //                              " FROM tickets_visitor  " +
-        //                              " LEFT OUTER JOIN camping_reservation   ON (camping_reservation.visitor_id = tickets_visitor.id) " +
-        //                              " LEFT OUTER JOIN camping_spot   ON (camping_reservation.spot_id = camping_spot.id) " +
-        //                              " LEFT OUTER JOIN camping_tent  ON (camping_reservation.tent_id = camping_tent.id) " +
-        //                              " WHERE tickets_visitor.rfid_code = '" + visitorTag + "'";
-
-        //            cmd = new MySqlCommand(displayQueryCheckOut, connection);
-        //            MySqlDataReader reader = cmd.ExecuteReader();
-
-        //            while (reader.Read())
-        //            {
-        //                if (reader[7].ToString() != "")
-        //                {
-        //                    if (reader[8].ToString() == "")
-        //                    {
-        //                        VisitorInfo.Text = "FirstName: " + reader[2] + " LastName: " + reader[3];
-        //                        CampNo.Text = "Camp #: " + reader[4] + Environment.NewLine + "Tent with size: " + reader[5] + " returned";
-
-        //                        connection.Close();
-        //                        string getCurrrectTentID = FindTentID(connection);
-        //                        connection.Open();
-        //                        string updateTent = "UPDATE camping_tent SET returned_time = '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "' WHERE id = '" + getCurrrectTentID + "' ";
-        //                        cmd = new MySqlCommand(updateTent, connection);
-        //                        cmd.ExecuteNonQuery();
-        //                        connection.Close();
-
-        //                        string getVisitorId = RetriveVisitorId(connection);
-        //                        connection.Open();
-        //                        string updateRes = "UPDATE camping_reservation SET date_left = '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "' WHERE visitor_id = '" + getVisitorId + "'";
-        //                        cmd = new MySqlCommand(updateRes, connection);
-        //                        cmd.ExecuteNonQuery();
-        //                        break;
-        //                    }
-        //                    else
-        //                    {
-        //                        VisitorInfo.Text = "FirstName: " + reader[2] + " LastName: " + reader[3];
-        //                        CampNo.Text = "Camp #: " + reader[4] + Environment.NewLine + "Tent with size: " + reader[5] + " returned";
-        //                        MessageBox.Show("Already Checked Out");
-        //                    }
-
-        //                }
-
-        //                else
-        //                {
-        //                    if (reader[8].ToString() == "")
-        //                    {
-        //                        VisitorInfo.Text = "FirstName: " + reader[2] + " LastName: " + reader[3];
-        //                        CampNo.Text = "Camp #: " + reader[4] + Environment.NewLine + " The visitor doesn't  have a tent to return";
-
-        //                        string getVisitorId = RetriveVisitorId(connection);
-        //                        connection.Open();
-        //                        string updateRes = "UPDATE camping_reservation SET date_left = '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "' WHERE visitor_id = '" + getVisitorId + "'";
-        //                        cmd = new MySqlCommand(updateRes, connection);
-        //                        cmd.ExecuteNonQuery();
-        //                        break;
-        //                    }
-        //                    else
-        //                    {
-        //                        MessageBox.Show("Already Checked Out");
-        //                    }
-
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (MySql.Data.MySqlClient.MySqlException)
-        //    {
-        //        MessageBox.Show("Failed to connect to the database!");
-        //    }
-        //    catch (MyException ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-        
 
 
         private void ShowFreeSpots()
@@ -248,95 +168,103 @@ namespace CampingApp
                 {
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        FreeSpots f = new FreeSpots();
-                        f.CampId = int.Parse(textBoxCampID.Text);
-                        f.SpotNo = int.Parse(textBoxSpotNo.Text);
-                        visitorTag = rfidTag;
-                        double eventMoney = double.Parse(GetEventMoney(connection));
-                        string visId = RetriveVisitorId(connection);
-                        long lastIdtent = 0;
-                        if (textBoxTentSize.Text != "")
+
+                        if (comboBoxCampNo.SelectedItem != null && comboBoxSpotNo.SelectedItem != null)
                         {
-                            if (f.SpotNo <= int.Parse(CheckSpotsAvailable(connection)))
+                            FreeSpots f = new FreeSpots();
+                            f.CampId = int.Parse(comboBoxCampNo.SelectedItem.ToString());
+                            f.SpotNo = int.Parse(comboBoxSpotNo.SelectedItem.ToString());
+                            visitorTag = rfidTag;
+                            double eventMoney = double.Parse(GetEventMoney(connection));
+                            string visId = RetriveVisitorId(connection);
+                            long lastIdtent = 0;
+                            if (comboBoxTentSize.SelectedItem != null)
                             {
-                                if (eventMoney >= RESERVATIONCOST)
+                                if (f.SpotNo <= int.Parse(CheckSpotsAvailable(connection)))
                                 {
-                                    connection.Open();
-                                    string insertSpot = "INSERT INTO camping_spot (camping_id, beds_taken) VALUES ('" + f.CampId + "', '" + f.SpotNo + "')";
-                                    cmd = new MySqlCommand(insertSpot, connection);
-                                    cmd.ExecuteNonQuery();
-                                    long lastIdCamp = cmd.LastInsertedId;
-
-                                    string updateCam = "UPDATE camping_camping SET free_beds = free_beds - '" + f.SpotNo + "' WHERE camping_number = '" + f.CampId + "'";
-                                    cmd = new MySqlCommand(updateCam, connection);
-                                    cmd.ExecuteNonQuery();
-
-                                    if (int.Parse(textBoxTentSize.Text) == 2 || int.Parse(textBoxTentSize.Text) == 4 || int.Parse(textBoxTentSize.Text) == 6)
+                                    if (eventMoney >= RESERVATIONCOST)
                                     {
-                                        string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(textBoxTentSize.Text) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd  hh-mm-ss") + "') ";
-                                        cmd = new MySqlCommand(insertTent, connection);
+                                        connection.Open();
+                                        string insertSpot = "INSERT INTO camping_spot (camping_id, beds_taken) VALUES ('" + f.CampId + "', '" + f.SpotNo + "')";
+                                        cmd = new MySqlCommand(insertSpot, connection);
                                         cmd.ExecuteNonQuery();
-                                        lastIdtent = cmd.LastInsertedId;
+                                        long lastIdCamp = cmd.LastInsertedId;
+
+                                        string updateCam = "UPDATE camping_camping SET free_beds = free_beds - '" + f.SpotNo + "' WHERE camping_number = '" + f.CampId + "'";
+                                        cmd = new MySqlCommand(updateCam, connection);
+                                        cmd.ExecuteNonQuery();
+
+                                        if (int.Parse(comboBoxTentSize.SelectedItem.ToString()) == 2 || int.Parse(comboBoxTentSize.SelectedItem.ToString()) == 4 || int.Parse(comboBoxTentSize.SelectedItem.ToString()) == 6)
+                                        {
+                                            string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(comboBoxTentSize.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd  hh-mm-ss") + "') ";
+                                            cmd = new MySqlCommand(insertTent, connection);
+                                            cmd.ExecuteNonQuery();
+                                            lastIdtent = cmd.LastInsertedId;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("You have three tent size options: 2 , 4 , 6! Choose one of them!");
+                                        }
+                                        string insertRes = "INSERT INTO camping_reservation (visitor_id, tent_id, spot_id) VALUES ('" + visId + "', '" + lastIdtent + "', '" + lastIdCamp + "')";
+                                        cmd = new MySqlCommand(insertRes, connection);
+                                        cmd.ExecuteNonQuery();
+
+                                        string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + RESERVATIONCOST + "' WHERE rfid_code = '" + visitorTag + "'";
+                                        cmd = new MySqlCommand(updateMoney, connection);
+                                        cmd.ExecuteNonQuery();
+                                        connection.Close();
                                     }
                                     else
                                     {
-                                        MessageBox.Show("You have three tent size options: 2 , 4 , 6! Choose one of them!");
+                                        MessageBox.Show("You dont have enough money in your bank account!");
+                                        return;
                                     }
-                                    string insertRes = "INSERT INTO camping_reservation (visitor_id, tent_id, spot_id) VALUES ('" + visId + "', '" + lastIdtent + "', '" + lastIdCamp + "')";
-                                    cmd = new MySqlCommand(insertRes, connection);
-                                    cmd.ExecuteNonQuery();
-
-                                    string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + RESERVATIONCOST + "' WHERE rfid_code = '" + visitorTag + "'";
-                                    cmd = new MySqlCommand(updateMoney, connection);
-                                    cmd.ExecuteNonQuery();
-                                    connection.Close();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("You dont have enough money in your bank account!");
-                                    return;
+                                    MessageBox.Show("There are not more available spaces on this spot");
                                 }
+                                MessageBox.Show("Reservation successful!");
                             }
+
                             else
                             {
-                                MessageBox.Show("There are not more available spaces on this spot");
+                                if (f.SpotNo <= int.Parse(CheckSpotsAvailable(connection)))
+                                {
+                                    if (eventMoney >= RESERVATIONCOST)
+                                    {
+                                        connection.Open();
+                                        string insertSpot = "INSERT INTO camping_spot (camping_id, beds_taken) VALUES ('" + f.CampId + "', '" + f.SpotNo + "')";
+                                        cmd = new MySqlCommand(insertSpot, connection);
+                                        cmd.ExecuteNonQuery();
+                                        long lastIdCamp = cmd.LastInsertedId;
+                                        string updateCam = "UPDATE camping_camping SET free_beds = free_beds - '" + f.SpotNo + "' WHERE camping_number = '" + f.CampId + "'";
+                                        cmd = new MySqlCommand(updateCam, connection);
+                                        cmd.ExecuteNonQuery();
+                                        string insertRes = "INSERT INTO camping_reservation (visitor_id, spot_id) VALUES (" + visId + ", " + lastIdCamp + ")";
+                                        cmd = new MySqlCommand(insertRes, connection);
+                                        cmd.ExecuteNonQuery();
+                                        string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + RESERVATIONCOST + "' WHERE rfid_code = '" + visitorTag + "'";
+                                        cmd = new MySqlCommand(updateMoney, connection);
+                                        cmd.ExecuteNonQuery();
+                                        connection.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("You dont have enough money in your bank account!");
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("There are not more available spaces on this spot");
+                                }
+                                MessageBox.Show("Reservation successful!");
                             }
-                            MessageBox.Show("Reservation successful!");
                         }
-
                         else
                         {
-                            if (f.SpotNo <= int.Parse(CheckSpotsAvailable(connection)))
-                            {
-                                if (eventMoney >= RESERVATIONCOST)
-                                {
-                                    connection.Open();
-                                    string insertSpot = "INSERT INTO camping_spot (camping_id, beds_taken) VALUES ('" + f.CampId + "', '" + f.SpotNo + "')";
-                                    cmd = new MySqlCommand(insertSpot, connection);
-                                    cmd.ExecuteNonQuery();
-                                    long lastIdCamp = cmd.LastInsertedId;
-                                    string updateCam = "UPDATE camping_camping SET free_beds = free_beds - '" + f.SpotNo + "' WHERE camping_number = '" + f.CampId + "'";
-                                    cmd = new MySqlCommand(updateCam, connection);
-                                    cmd.ExecuteNonQuery();
-                                    string insertRes = "INSERT INTO camping_reservation (visitor_id, spot_id) VALUES (" + visId + ", " + lastIdCamp + ")";
-                                    cmd = new MySqlCommand(insertRes, connection);
-                                    cmd.ExecuteNonQuery();
-                                    string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + RESERVATIONCOST + "' WHERE rfid_code = '" + visitorTag + "'";
-                                    cmd = new MySqlCommand(updateMoney, connection);
-                                    cmd.ExecuteNonQuery();
-                                    connection.Close();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("You dont have enough money in your bank account!");
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("There are not more available spaces on this spot");
-                            }
-                            MessageBox.Show("Reservation successful!");
+                            MessageBox.Show("Choose an number from the dropdown lists!");
                         }
                     }
                 }
@@ -353,9 +281,9 @@ namespace CampingApp
                 {
                     MessageBox.Show(ex.Message);
                 }
-                textBoxCampID.Text = "";
-                textBoxSpotNo.Text = "";
-                textBoxTentSize.Text = "";
+                comboBoxTentSize.SelectedItem = null;
+                comboBoxSpotNo.SelectedItem = null;
+                comboBoxCampNo.SelectedItem = null;
                 lbResStatus.Text = "";
                 rfidManager.tagFound -= Insert;
                 tabControl1.SelectedTab = tabPageCheckIn;
@@ -372,7 +300,7 @@ namespace CampingApp
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             rfidManager.tagFound += Insert;
-            lbResStatus.Text = "Please tag your RFID braclet";
+            lbResStatus.Text = "Please tag your RFID bracelet";
         }
         private void AddTent(string rfidTag)
         {
@@ -393,123 +321,132 @@ namespace CampingApp
                         GetResDetails add = RetriveResIDs(connection); ;
                         long lastIdtent = 0;
                         int money = 0;
+                        connection.Close();
                         double eventMoney = double.Parse(GetEventMoney(connection));
-                        if (int.Parse(textBoxtent.Text) == 2 || int.Parse(textBoxtent.Text) == 4 || int.Parse(textBoxtent.Text) == 6)
+                        if (cbAddTentOnly.SelectedItem != null)
                         {
-
-                            if (textBoxtent.Text == "2")
+                            if (cbAddTentOnly.SelectedItem.ToString() == "2" || cbAddTentOnly.SelectedItem.ToString() == "4" || cbAddTentOnly.SelectedItem.ToString() == "6")
                             {
-                                money = 15;
-                                if (add != null)
+                                connection.Open();
+                                if (cbAddTentOnly.SelectedItem.ToString() == "2")
                                 {
-                                    if (eventMoney >= money)
+                                    money = 15;
+                                    if (add != null)
                                     {
-                                        connection.Open();
-                                        string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(textBoxtent.Text) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
-                                        cmd = new MySqlCommand(insertTent, connection);
-                                        cmd.ExecuteNonQuery();
-                                        lastIdtent = cmd.LastInsertedId;
-                                        string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
-                                        cmd = new MySqlCommand(updateRes, connection);
-                                        cmd.ExecuteNonQuery();
-                                        string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
-                                        cmd = new MySqlCommand(updateMoney, connection);
-                                        cmd.ExecuteNonQuery();
-                                        MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
-                                    "Visitor with id: " + add.Visitor_id + Environment.NewLine +
-                                    "Tent size: " + textBoxtent.Text + Environment.NewLine +
-                                    "Tent ID: " + lastIdtent + Environment.NewLine +
-                                    "Tent price: " + money);
-                                        textBoxtent.Text = "";
+                                        if (eventMoney >= money)
+                                        {
+
+                                            string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(cbAddTentOnly.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
+                                            cmd = new MySqlCommand(insertTent, connection);
+                                            cmd.ExecuteNonQuery();
+                                            lastIdtent = cmd.LastInsertedId;
+                                            string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
+                                            cmd = new MySqlCommand(updateRes, connection);
+                                            cmd.ExecuteNonQuery();
+                                            string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
+                                            cmd = new MySqlCommand(updateMoney, connection);
+                                            cmd.ExecuteNonQuery();
+                                            MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
+                                        "Visitor with id: " + add.Visitor_id + Environment.NewLine +
+                                        "Tent size: " + cbAddTentOnly.SelectedItem.ToString() + Environment.NewLine +
+                                        "Tent ID: " + lastIdtent + Environment.NewLine +
+                                        "Tent price: " + money);
+                                            cbAddTentOnly.SelectedItem = null;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("You dont have enough money in your bank account!");
+
+                                        }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("You dont have enough money in your bank account!");
+                                        MessageBox.Show("First make a reservation, then add a tent!");
+                                    }
 
+                                }
+                                else if (cbAddTentOnly.SelectedItem.ToString() == "4")
+                                {
+                                    money = 30;
+                                    if (add != null)
+                                    {
+                                        if (eventMoney >= money)
+                                        {
+                                            string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(cbAddTentOnly.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
+                                            cmd = new MySqlCommand(insertTent, connection);
+                                            cmd.ExecuteNonQuery();
+                                            lastIdtent = cmd.LastInsertedId;
+                                            string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
+                                            cmd = new MySqlCommand(updateRes, connection);
+                                            cmd.ExecuteNonQuery();
+                                            string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
+                                            cmd = new MySqlCommand(updateMoney, connection);
+                                            cmd.ExecuteNonQuery();
+
+                                            MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
+                                        "Visitor with id: " + add.Visitor_id + Environment.NewLine +
+                                        "Tent size: " + cbAddTentOnly.SelectedItem.ToString() + Environment.NewLine +
+                                        "Tent ID: " + lastIdtent + Environment.NewLine +
+                                        "Tent price: " + money);
+                                            cbAddTentOnly.SelectedItem = null;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("You dont have enough money in your bank account!");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("First make a reservation, then add a tent!");
+                                    }
+
+
+                                }
+                                else if (cbAddTentOnly.SelectedItem.ToString() == "6")
+                                {
+                                    money = 45;
+                                    if (add != null)
+                                    {
+                                        if (eventMoney >= money)
+                                        {
+                                            string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(cbAddTentOnly.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
+                                            cmd = new MySqlCommand(insertTent, connection);
+                                            cmd.ExecuteNonQuery();
+                                            lastIdtent = cmd.LastInsertedId;
+                                            string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
+                                            cmd = new MySqlCommand(updateRes, connection);
+                                            cmd.ExecuteNonQuery();
+                                            string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
+                                            cmd = new MySqlCommand(updateMoney, connection);
+                                            cmd.ExecuteNonQuery();
+                                            MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
+                                        "Visitor with id: " + add.Visitor_id + Environment.NewLine +
+                                        "Tent size: " + cbAddTentOnly.SelectedItem.ToString() + Environment.NewLine +
+                                        "Tent ID: " + lastIdtent + Environment.NewLine +
+                                        "Tent price: " + money);
+                                            cbAddTentOnly.SelectedItem = null;
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("You dont have enough money in your bank account!");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("First make a reservation, then add a tent!");
                                     }
                                 }
-                                else
-                                {
-                                    MessageBox.Show("First make a reservation, then add a tent!");
-                                }
-
                             }
-                            else if (textBoxtent.Text == "4")
+                            else
                             {
-                                money = 30;
-                                if (add != null)
-                                {
-                                    if (eventMoney >= money)
-                                    {
-                                        string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(textBoxtent.Text) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
-                                        cmd = new MySqlCommand(insertTent, connection);
-                                        cmd.ExecuteNonQuery();
-                                        lastIdtent = cmd.LastInsertedId;
-                                        string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
-                                        cmd = new MySqlCommand(updateRes, connection);
-                                        cmd.ExecuteNonQuery();
-                                        string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
-                                        cmd = new MySqlCommand(updateMoney, connection);
-                                        cmd.ExecuteNonQuery();
-
-                                        MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
-                                    "Visitor with id: " + add.Visitor_id + Environment.NewLine +
-                                    "Tent size: " + textBoxtent.Text + Environment.NewLine +
-                                    "Tent ID: " + lastIdtent + Environment.NewLine +
-                                    "Tent price: " + money);
-                                        textBoxtent.Text = "";
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("You dont have enough money in your bank account!");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("First make a reservation, then add a tent!");
-                                }
-
-
-                            }
-                            else if (textBoxtent.Text == "6")
-                            {
-                                money = 45;
-                                if (add != null)
-                                {
-                                    if (eventMoney >= money)
-                                    {
-                                        string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(textBoxtent.Text) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
-                                        cmd = new MySqlCommand(insertTent, connection);
-                                        cmd.ExecuteNonQuery();
-                                        lastIdtent = cmd.LastInsertedId;
-                                        string updateRes = "UPDATE camping_reservation SET tent_id = '" + lastIdtent + "' WHERE visitor_id = '" + add.Visitor_id + "'";
-                                        cmd = new MySqlCommand(updateRes, connection);
-                                        cmd.ExecuteNonQuery();
-                                        string updateMoney = "UPDATE tickets_visitor SET event_money = event_money - '" + money + "' WHERE rfid_code = '" + visitorTag + "'";
-                                        cmd = new MySqlCommand(updateMoney, connection);
-                                        cmd.ExecuteNonQuery();
-                                        MessageBox.Show("Date and Time: " + System.DateTime.Now + Environment.NewLine +
-                                    "Visitor with id: " + add.Visitor_id + Environment.NewLine +
-                                    "Tent size: " + textBoxtent.Text + Environment.NewLine +
-                                    "Tent ID: " + lastIdtent + Environment.NewLine +
-                                    "Tent price: " + money);
-                                        textBoxtent.Text = "";
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("You dont have enough money in your bank account!");
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("First make a reservation, then add a tent!");
-                                }
+                                MessageBox.Show("You have three tent size options: 2 , 4 , 6! Choose one of them!");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("You have three tent size options: 2 , 4 , 6! Choose one of them!");
+                            MessageBox.Show("Choose an option in the dropdown menu!");
                         }
+
 
                     }
                 }
@@ -521,7 +458,6 @@ namespace CampingApp
                 {
                     MessageBox.Show("Type the correct input stuff in the correct places");
                 }
-                textBoxtent.Text = "";
                 StatusTent.Text = "";
                 rfidManager.tagFound -= AddTent;
                 tabControl1.SelectedTab = tabPageCheckIn;
@@ -531,7 +467,7 @@ namespace CampingApp
         private void buttonTent_Click(object sender, EventArgs e)
         {
             rfidManager.tagFound += AddTent;
-            StatusTent.Text = "Please tag your RFID braclet";
+            StatusTent.Text = "Please tag your RFID bracelet";
         }
         private string RetriveVisitorId(MySqlConnection connection)
         {
@@ -581,16 +517,17 @@ namespace CampingApp
         }
         private string CheckSpotsAvailable(MySqlConnection connection)
         {
+            string free_spots = "";
             try
             {
                 connection.Open();
                 string query = "SELECT free_beds " +
                     "FROM camping_camping " +
-                    "WHERE camping_number = '" + textBoxCampID.Text + "'";
+                    "WHERE camping_number = '" + comboBoxCampNo.SelectedItem.ToString() + "'";
                 cmd = new MySqlCommand(query, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 reader.Read();
-                string free_spots = reader[0].ToString();
+                free_spots = reader[0].ToString();
                 connection.Close();
                 return free_spots;
             }
@@ -619,14 +556,14 @@ namespace CampingApp
 
         private void buttonReserve_Click(object sender, EventArgs e)
         {
-            lbStatus.Text = "Start scanning...";
+            lbStatus.Text = "";
             tabControl1.SelectedTab = tabPageReserve;
             ShowFreeSpots();
         }
 
         private void buttonADDTent_Click(object sender, EventArgs e)
         {
-            Status.Text = "Start scannig...";
+            Status.Text = "";
             tabControl1.SelectedTab = tabPageAddTent;
         }
         private string GetEventMoney(MySqlConnection connection)
@@ -639,6 +576,16 @@ namespace CampingApp
             string res = cmd.ExecuteScalar().ToString();
             connection.Close();
             return res;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timer1.Enabled)
+            {
+                timer1.Stop();
+                labelstats.Text = "";
+                labelInfo.Text = "Press CHECKIN!";
+            }
         }
         //private void buttonCheckOut_Click(object sender, EventArgs e)
         //{
