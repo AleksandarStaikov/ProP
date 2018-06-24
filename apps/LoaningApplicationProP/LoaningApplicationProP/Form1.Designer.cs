@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lstItems = new System.Windows.Forms.ListBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,8 +39,6 @@
             this.tbSuggest = new System.Windows.Forms.TextBox();
             this.lsOfWantedFeatures = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbPay = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -64,22 +61,11 @@
             // 
             this.lstItems.FormattingEnabled = true;
             this.lstItems.ItemHeight = 16;
-            this.lstItems.Location = new System.Drawing.Point(12, 51);
+            this.lstItems.Location = new System.Drawing.Point(12, 20);
             this.lstItems.Name = "lstItems";
             this.lstItems.Size = new System.Drawing.Size(159, 260);
             this.lstItems.TabIndex = 0;
             this.lstItems.SelectedIndexChanged += new System.EventHandler(this.lstItems_SelectedIndexChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.LightGreen;
-            this.btnRefresh.Location = new System.Drawing.Point(12, 12);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(159, 33);
-            this.btnRefresh.TabIndex = 1;
-            this.btnRefresh.Text = "Refresh List";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnOrder
             // 
@@ -104,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 92);
+            this.label3.Location = new System.Drawing.Point(9, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 17);
             this.label3.TabIndex = 8;
@@ -115,14 +101,14 @@
             this.lbName.AutoSize = true;
             this.lbName.Location = new System.Drawing.Point(64, 36);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(69, 17);
+            this.lbName.Size = new System.Drawing.Size(42, 17);
             this.lbName.TabIndex = 12;
-            this.lbName.Text = "Jane Doe";
+            this.lbName.Text = "None";
             // 
             // lbRentItems
             // 
             this.lbRentItems.AutoSize = true;
-            this.lbRentItems.Location = new System.Drawing.Point(183, 92);
+            this.lbRentItems.Location = new System.Drawing.Point(183, 65);
             this.lbRentItems.Name = "lbRentItems";
             this.lbRentItems.Size = new System.Drawing.Size(16, 17);
             this.lbRentItems.TabIndex = 13;
@@ -162,31 +148,10 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Wanted Objects";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(315, 522);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 29);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Amount to pay:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // lbPay
-            // 
-            this.lbPay.AutoSize = true;
-            this.lbPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPay.Location = new System.Drawing.Point(491, 522);
-            this.lbPay.Name = "lbPay";
-            this.lbPay.Size = new System.Drawing.Size(26, 29);
-            this.lbPay.TabIndex = 20;
-            this.lbPay.Text = "0";
-            // 
             // btnReturn
             // 
             this.btnReturn.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnReturn.Location = new System.Drawing.Point(177, 334);
+            this.btnReturn.Location = new System.Drawing.Point(177, 305);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(100, 46);
             this.btnReturn.TabIndex = 22;
@@ -264,7 +229,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 92);
+            this.label12.Location = new System.Drawing.Point(11, 92);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 17);
             this.label12.TabIndex = 30;
@@ -278,15 +243,17 @@
             this.label13.Size = new System.Drawing.Size(16, 17);
             this.label13.TabIndex = 31;
             this.label13.Text = "0";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // lstOwned
             // 
             this.lstOwned.FormattingEnabled = true;
             this.lstOwned.ItemHeight = 16;
-            this.lstOwned.Location = new System.Drawing.Point(13, 334);
+            this.lstOwned.Location = new System.Drawing.Point(13, 305);
             this.lstOwned.Name = "lstOwned";
-            this.lstOwned.Size = new System.Drawing.Size(158, 228);
+            this.lstOwned.Size = new System.Drawing.Size(158, 244);
             this.lstOwned.TabIndex = 32;
+            this.lstOwned.SelectedIndexChanged += new System.EventHandler(this.lstOwned_SelectedIndexChanged);
             // 
             // glUser
             // 
@@ -296,7 +263,7 @@
             this.glUser.Controls.Add(this.lbRentItems);
             this.glUser.Location = new System.Drawing.Point(604, 334);
             this.glUser.Name = "glUser";
-            this.glUser.Size = new System.Drawing.Size(205, 135);
+            this.glUser.Size = new System.Drawing.Size(205, 125);
             this.glUser.TabIndex = 33;
             this.glUser.TabStop = false;
             this.glUser.Text = "Visitor";
@@ -329,14 +296,11 @@
             this.Controls.Add(this.lstOwned);
             this.Controls.Add(this.btnSugestion);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.lbPay);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lsOfWantedFeatures);
             this.Controls.Add(this.tbSuggest);
             this.Controls.Add(this.lbSugest);
             this.Controls.Add(this.btnOrder);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lstItems);
             this.Name = "Form1";
             this.Text = "LoaningApplication";
@@ -354,11 +318,9 @@
         #endregion
 
         private System.Windows.Forms.ListBox lstItems;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbFavoriteItem;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbRentItems;
@@ -366,8 +328,6 @@
         private System.Windows.Forms.TextBox tbSuggest;
         private System.Windows.Forms.ListBox lsOfWantedFeatures;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbPay;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

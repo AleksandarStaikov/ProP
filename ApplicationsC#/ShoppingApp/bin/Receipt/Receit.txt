@@ -1,0 +1,3 @@
+******************* totals ******************* 
+profit from packed candy is: 0
+profit from mixed candy is: 0
