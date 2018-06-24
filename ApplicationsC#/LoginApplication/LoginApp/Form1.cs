@@ -121,15 +121,23 @@ namespace LoginApp
                 MySqlCommand command = new MySqlCommand(query, connection);
                 string queryResult = ((int)command.ExecuteScalar()).ToString();
                 this.entranceVisitor.CurrentId = queryResult;
+
+                lbStatus.Text = "PLease tag your rfid braclet";
+                this.rfidManager.tagFound += this.RFIDFound;
+                this.rfidManager.tagFound -= this.CheckInVisitor;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message.Contains("Object reference not set to an instance of an object."))
+                {
+                    MessageBox.Show("This QR was not found or was already used");
+                    timer1.Start();
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-
-            lbStatus.Text = "PLease tag your rfid braclet";
-            this.rfidManager.tagFound += this.RFIDFound;
-            this.rfidManager.tagFound -= this.CheckInVisitor;
         }
 
         public void RFIDFound(string rfid)
@@ -230,7 +238,15 @@ namespace LoginApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    if (ex.Message.Contains("Duplicate entry"))
+                    {
+                        MessageBox.Show("This bracelet is already in the system");
+                        this.lbRegStatus.Text = "Please tag your RFID braclet";
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
 
@@ -253,21 +269,32 @@ namespace LoginApp
                     var command = new MySqlCommand(query, connection);
                     var result = command.ExecuteScalar();
 
-                    
+
                     if (result != null)
                     {
-                        if (((bool)result) == true)
-                        {
-                            this.lbStatus.Text = "Scan QR code or RFID bracelet!";
-                            this.Notify("This RFID was already checked in, please check out first.");
-                        }
-                        else
+                        if (result == System.DBNull.Value)
                         {
                             var updateQuery = SqlCommands.CheckInVisitor(rfidTag);
                             var updateCommand = new MySqlCommand(updateQuery, connection);
                             updateCommand.ExecuteNonQuery();
                             this.lbStatus.Text = "Scan QR code or RFID bracelet!";
                             this.Notify("Check-in successful!");
+                        }
+                        else
+                        {
+                            if (((bool)result) == true)
+                            {
+                                this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                                this.Notify("This RFID was already checked in, please check out first.");
+                            }
+                            else
+                            {
+                                var updateQuery = SqlCommands.CheckInVisitor(rfidTag);
+                                var updateCommand = new MySqlCommand(updateQuery, connection);
+                                updateCommand.ExecuteNonQuery();
+                                this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                                this.Notify("Check-in successful!");
+                            }
                         }
                     }
                     else
