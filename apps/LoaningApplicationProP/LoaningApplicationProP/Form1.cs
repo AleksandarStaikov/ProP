@@ -77,6 +77,9 @@ namespace LoaningApplicationProP
             this.shop.Items = sqlManager.GetItems();
             this.ListAvaliableItems();
 
+            tabControl1.TabPages[0].Text = "Loaning";
+            tabControl1.TabPages[1].Text = "Returning";
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -348,6 +351,71 @@ namespace LoaningApplicationProP
                 this.shop.UserTents.Remove(this.shop.UserTents[this.lstTents.SelectedIndex]);
                 this.ListUserTents();
             }
+        }
+
+        private void lbName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbRentItems_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCost_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void glUser_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbSuggest_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
