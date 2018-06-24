@@ -71,7 +71,7 @@
             this.tabControl1.Controls.Add(this.tabPageCheckIn);
             this.tabControl1.Controls.Add(this.tabPageReserve);
             this.tabControl1.Controls.Add(this.tabPageAddTent);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(92, 27);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -410,7 +410,7 @@
             "2",
             "4",
             "6"});
-            this.cbAddTentOnly.Location = new System.Drawing.Point(191, 47);
+            this.cbAddTentOnly.Location = new System.Drawing.Point(198, 257);
             this.cbAddTentOnly.Name = "cbAddTentOnly";
             this.cbAddTentOnly.Size = new System.Drawing.Size(121, 39);
             this.cbAddTentOnly.TabIndex = 17;
@@ -419,7 +419,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(328, 47);
+            this.label6.Location = new System.Drawing.Point(381, 261);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(378, 31);
             this.label6.TabIndex = 16;
@@ -447,7 +447,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(45, 47);
+            this.label5.Location = new System.Drawing.Point(52, 257);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 31);
             this.label5.TabIndex = 13;
@@ -459,7 +459,7 @@
             this.buttonTent.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
             this.buttonTent.FlatAppearance.BorderSize = 4;
             this.buttonTent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTent.Location = new System.Drawing.Point(21, 113);
+            this.buttonTent.Location = new System.Drawing.Point(827, 247);
             this.buttonTent.Name = "buttonTent";
             this.buttonTent.Size = new System.Drawing.Size(160, 58);
             this.buttonTent.TabIndex = 11;
