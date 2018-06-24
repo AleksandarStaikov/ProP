@@ -68,7 +68,7 @@ namespace ShoppingApp
             this.OpenConnection();
             this.sqlMannager = new SqlMannager(connection);
             this.rfidManager = new RFIDManager();
-
+         
             //Form1 frm = new Form1()
             //subscribe to events in chosenShop
 
@@ -203,10 +203,10 @@ namespace ShoppingApp
                 {
                     Item temp = new Item(0, "nothing", 0, 0, null, "not");
                     Item temp2 = null;
-                    int quant = temp.Quantity;
+                    int quant = temp.Quantety;
 
                     temp.SellingPrice = ((Item)lsbTakeDrinks.SelectedItem).SellingPrice;
-                    temp.Quantity = Convert.ToInt32(nud1.Value);
+                    temp.Quantety = Convert.ToInt32(nud1.Value);
                     temp.Name = ((Item)lsbTakeDrinks.SelectedItem).Name;
                     temp.ItemImage = ((Item)lsbTakeDrinks.SelectedItem).ItemImage;
                     temp.Type = ((Item)lsbTakeDrinks.SelectedItem).Type;
@@ -220,7 +220,7 @@ namespace ShoppingApp
                         if (i.Name == temp.Name)
                         {
 
-                            temp.Quantity += i.Quantity;
+                            temp.Quantety += i.Quantety;
                             lsbHaveDrinks.Items.Remove(i);
                             temp2 = i;
                             found = true;
@@ -231,11 +231,11 @@ namespace ShoppingApp
                     ordered.Add(temp);
 
                     if (!found)
-                        ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud1.Value);
+                        ordered[ordered.Count() - 1].Quantety = Convert.ToInt32(nud1.Value);
 
                     totalPrice += (!found)
-                          ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
-                            : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                          ? ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice
+                            : ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
 
                     FillPrice();
 
@@ -268,10 +268,10 @@ namespace ShoppingApp
                 {
                     Item temp = new Item(0, "nothing", 0, 0, null, "not");
                     Item temp2 = null; ;
-                    int quant = temp.Quantity;
+                    int quant = temp.Quantety;
 
                     temp.SellingPrice = ((Item)lsbTakeFood.SelectedItem).SellingPrice;
-                    temp.Quantity = Convert.ToInt32(nud2.Value);
+                    temp.Quantety = Convert.ToInt32(nud2.Value);
                     temp.Name = ((Item)lsbTakeFood.SelectedItem).Name;
                     temp.ItemImage = ((Item)lsbTakeFood.SelectedItem).ItemImage;
                     temp.Type = ((Item)lsbTakeFood.SelectedItem).Type;
@@ -283,8 +283,8 @@ namespace ShoppingApp
                     {
                         if (i.Name == temp.Name)
                         {
-                            quant = i.Quantity;
-                            temp.Quantity += i.Quantity;
+                            quant = i.Quantety;
+                            temp.Quantety += i.Quantety;
                             lsbHaveFood.Items.Remove(i);
                             temp2 = i;
                             found = true;
@@ -299,11 +299,11 @@ namespace ShoppingApp
                     ordered.Add(temp);
 
                     if (!found)
-                        ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud2.Value);
+                        ordered[ordered.Count() - 1].Quantety = Convert.ToInt32(nud2.Value);
 
                     totalPrice += (!found)
-                                ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
-                                : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                                ? ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice
+                                : ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
 
                     FillPrice();
 
@@ -334,11 +334,11 @@ namespace ShoppingApp
         //find a way to genarilaze this
         public void RemoveFromLSBxItemsOnSelected(ListBox myListBox, int quantaty, Item temp)
         {
-            if (temp.Quantity != 0)
+            if (temp.Quantety != 0)
             {
                 totalPrice -= temp.SellingPrice * quantaty;
-                temp.Quantity -= quantaty;
-                if (temp.Quantity != 0)
+                temp.Quantety -= quantaty;
+                if (temp.Quantety != 0)
                 {
                     myListBox.Items.Remove(temp);
                     myListBox.Items.Add(temp);
@@ -363,7 +363,7 @@ namespace ShoppingApp
                 if (item.Name == temp.Name)
                 {
                     //take from here and put in in lsb but first change the quant of this 
-                    item.Quantity += quantaty;
+                    item.Quantety += quantaty;
 
                     temp2 = item;
                     break;
@@ -384,7 +384,7 @@ namespace ShoppingApp
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveDrinks.SelectedItem);
-            int quanta = temp.Quantity;
+            int quanta = temp.Quantety;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -404,7 +404,7 @@ namespace ShoppingApp
         private void button2_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveDrinks.SelectedItem);
-
+            
             // substract from total sum and update the item for listbox.
             try
             {
@@ -420,18 +420,27 @@ namespace ShoppingApp
             FillPrice();
         }
 
+
+
+
+
+
         private void button6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Waiting for RFID...", "Complete order")
             this.rfidManager.tagFound += this.RunTransactions;
-            
         }
 
         private void RunTransactions(string tag)
         {
-            if (label16.InvokeRequired)
+            // x get the user rfid 
+            // x get user id from db
+            // x add a purchase (put the time and the visitor id)  -> purchase id 
+            // x foreach item in order decrease amount and create orrder record
+            // x detach method form event
+
+            if (label18.InvokeRequired)
             {
-                label16.Invoke((MethodInvoker)delegate ()
+                label18.Invoke((MethodInvoker)delegate ()
                 {
                     this.RunTransactions(tag);
                 });
@@ -439,25 +448,24 @@ namespace ShoppingApp
             else
             {
                 var visitorId = this.sqlMannager.GetUserIDByRfid(tag);
-                if (visitorId != -1)
-                {
-                    var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
+            var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
 
-                    foreach (var item in this.ordered)
-                    {
-                        this.sqlMannager.AddOrder(item, purchaseId);
-                    }
-
-                    this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
-                    MessageBox.Show("Print receipt?", "Transaction successfull!", MessageBoxButtons.YesNo);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid RFID!", "Transaction unsuccessfull!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-
-                this.rfidManager.tagFound -= RunTransactions;
+            foreach (var item in this.ordered)
+            {
+                this.sqlMannager.AddOrder(item, purchaseId);
             }
+            this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
+
+            this.rfidManager.tagFound -= RunTransactions;
+            MessageBox.Show("Transaction Successfull");
+                lsbHaveFood.Items.Clear();
+                lsbHaveDrinks.Items.Clear();
+                
+            }
+
+            
+
+            // clear form
         }
 
         private void btnSelectShop_Click(object sender, EventArgs e)
@@ -474,7 +482,7 @@ namespace ShoppingApp
         private void btnRemoveAll2_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveFood.SelectedItem);
-            int quanta = temp.Quantity;
+            int quanta = temp.Quantety;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -493,7 +501,7 @@ namespace ShoppingApp
         private void button3_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveFood.SelectedItem);
-            int quanta = temp.Quantity;
+            int quanta = temp.Quantety;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -539,15 +547,17 @@ namespace ShoppingApp
             {
                 printDocument.Print();
             }
+            totalPrice = 0;
+            FillPrice();
             //****************************************************
 
         }
 
-
+     
         public void CreateReceipt(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             totalPrice = 0;
-            int total = 0;
+            int total = 0;          
             double change = 0;
 
             //this prints the reciept
@@ -562,7 +572,9 @@ namespace ShoppingApp
             int startY = 10;
             int offset = 40;
 
-            graphic.DrawString(" Food Shop", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString("Event Name: Mascarada", new Font("Courier New", 18), new SolidBrush(Color.Black), startX-4, startY);
+            offset = offset + (int)fontHeight;
+            graphic.DrawString("Shop: Food Shop", new Font("Courier New", 18), new SolidBrush(Color.Black), startX -4, startY = offset);
             string top = "Item Name".PadRight(30) + "Price";
             graphic.DrawString(top, font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + (int)fontHeight; //make the spacing consistent
@@ -595,12 +607,18 @@ namespace ShoppingApp
                     string productLine = productDescription + $"\t\t\t\t\t{productPrice}";
 
                     graphic.DrawString(productLine, font, new SolidBrush(Color.Black), startX, startY + offset);
-                    // graphic.DrawString(productPrice.ToString(), font, new SolidBrush(Color.Black), startX + 300, startY + offset);
+                   // graphic.DrawString(productPrice.ToString(), font, new SolidBrush(Color.Black), startX + 300, startY + offset);
 
                     offset = offset + (int)fontHeight + 5; //make the spacing consistent
                 }
 
             }
+
+
+          
+
+           
+
             //when we have drawn all of the items add the total
 
             offset = offset + 20; //make some room so that the total stands out.
@@ -608,11 +626,15 @@ namespace ShoppingApp
             graphic.DrawString("Total to pay ".PadRight(30) + String.Format("{0:c}", totalprice), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
 
             offset = offset + 30; //make some room so that the total stands out.        
-            graphic.DrawString("CHANGE ".PadRight(30) + String.Format("{0:c}", change), font, new SolidBrush(Color.Black), startX, startY + offset);
-            offset = offset + 30; //make some room so that the total stands out.
-            graphic.DrawString("     Thank-you for your custom,", font, new SolidBrush(Color.Black), startX, startY + offset);
+                                  //  graphic.DrawString("CHANGE ".PadRight(30) + String.Format("{0:c}", change), font, new SolidBrush(Color.Black), startX, startY + offset);
+                                  //  offset = offset + 30; //make some room so that the total stands out.
+            graphic.DrawString("     Customer support telephone: 0603334567", new Font("Courier New", 9), new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + 15;
-            graphic.DrawString("       please come back soon!", font, new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString("     Customer support email: mascarada@yahoo.com", new Font("Courier New", 9), new SolidBrush(Color.Black), startX, startY + offset);
+            offset = offset + 30;
+            graphic.DrawString("     Thank-you for your custom,", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
+            offset = offset + 15;
+            graphic.DrawString("       please come back soon!", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
 
         }
 
