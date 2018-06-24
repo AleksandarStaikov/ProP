@@ -428,6 +428,8 @@ namespace ShoppingApp
         private void button6_Click(object sender, EventArgs e)
         {
             this.rfidManager.tagFound += this.RunTransactions;
+            button5.Enabled = true;
+            timer1.Start();
         }
 
         private void RunTransactions(string tag)
@@ -460,7 +462,7 @@ namespace ShoppingApp
             MessageBox.Show("Transaction Successfull");
                 lsbHaveFood.Items.Clear();
                 lsbHaveDrinks.Items.Clear();
-                
+               
             }
 
             
@@ -686,6 +688,15 @@ namespace ShoppingApp
         private void panel4_Click(object sender, EventArgs e)
         {
 
+        }
+        private int timerCounter = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timerCounter++;
+            if (timerCounter == 5)
+            {
+                button5.Enabled = false;
+            }
         }
     }
 }
