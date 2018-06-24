@@ -120,5 +120,17 @@
   <ItemGroup>
     <None Include="Resources\Backgroun5.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationGroup_16x_w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close_WhiteNoHalo_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize_16x_w.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -22,16 +22,14 @@ namespace ShoppingApp
     public partial class Form1 : Form
     {
         public ChoseShop shop;
-        private RFID myRFIDReader;
         private MySqlConnection connection = new MySqlConnection();
         private SqlMannager sqlMannager;
         private RFIDManager rfidManager;
         List<Item> myItems;
-        Visitor currentVisitor;
         List<Visitor> users = new List<Visitor>();
         List<Item> ordered;
         double totalPrice = 0;
-
+        Point mouseLocation = new Point();
 
         public Form1()
         {
@@ -161,34 +159,6 @@ namespace ShoppingApp
             return null;
         }
 
-        // how to combine in one method?
-        private void lsbTakeFood_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Item aItm = ((Item)lsbTakeFood.SelectedItem);
-            try
-            {
-                pictureBox2.Image = aItm.ItemImage;
-            }
-            catch
-            {
-                //  MessageBox.Show("There was a problem loading the image");
-
-            }
-        }
-        // how to combine in one method?
-        private void lsbTakeDrinks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Item aItm = ((Item)lsbTakeDrinks.SelectedItem);
-            try
-            {
-                pictureBox1.Image = aItm.ItemImage;
-            }
-            catch (System.NullReferenceException)
-            {
-                //  MessageBox.Show("There was a problem loading the image");
-
-            }
-        }
 
         //add drinks
         private void button1_Click(object sender, EventArgs e)
@@ -213,7 +183,7 @@ namespace ShoppingApp
                     temp.HoldId = ((Item)lsbTakeDrinks.SelectedItem).HoldId;
 
                     // int quant = temp.Quantity;
-                    //adds the selected item to the other list and in the orderd items list.
+                    //adds the selected item to the other list and in the ordered items list.
                     bool found = false;
                     foreach (Item i in ordered)
                     {
@@ -428,8 +398,6 @@ namespace ShoppingApp
         private void button6_Click(object sender, EventArgs e)
         {
             this.rfidManager.tagFound += this.RunTransactions;
-            button5.Enabled = true;
-            timer1.Start();
         }
 
         private void RunTransactions(string tag)
@@ -450,24 +418,27 @@ namespace ShoppingApp
             else
             {
                 var visitorId = this.sqlMannager.GetUserIDByRfid(tag);
-            var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
+                if(visitorId != -1)
+                {
+                    var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
 
-            foreach (var item in this.ordered)
-            {
-                this.sqlMannager.AddOrder(item, purchaseId);
+                    foreach (var item in this.ordered)
+                    {
+                        this.sqlMannager.AddOrder(item, purchaseId);
+                    }
+                    this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
+
+                    this.rfidManager.tagFound -= RunTransactions;
+                    MessageBox.Show("Print receipt?", "Transaction Successfull", MessageBoxButtons.YesNo);
+                    lsbHaveFood.Items.Clear();
+                    lsbHaveDrinks.Items.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid RFID Code", "Transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
-
-            this.rfidManager.tagFound -= RunTransactions;
-            MessageBox.Show("Transaction Successfull");
-                lsbHaveFood.Items.Clear();
-                lsbHaveDrinks.Items.Clear();
-               
-            }
-
-            
-
-            // clear form
         }
 
         private void btnSelectShop_Click(object sender, EventArgs e)
@@ -479,6 +450,7 @@ namespace ShoppingApp
         {
             this.myItems = sqlMannager.LoadShopItems(shop.Choice);
             this.FillListBoxes();
+            btnChoseShop.Enabled = false;
         }
 
         private void btnRemoveAll2_Click(object sender, EventArgs e)
@@ -526,7 +498,6 @@ namespace ShoppingApp
             shop.button2c += new ChoseShop.myChoiceEventHandler(SelectedShop);
             shop.button3c += new ChoseShop.myChoiceEventHandler(SelectedShop);
             shop.button4c += new ChoseShop.myChoiceEventHandler(SelectedShop);
-            btnChoseShop.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -559,9 +530,6 @@ namespace ShoppingApp
         public void CreateReceipt(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             totalPrice = 0;
-            int total = 0;          
-            double change = 0;
-
             //this prints the reciept
 
             Graphics graphic = e.Graphics;
@@ -615,12 +583,6 @@ namespace ShoppingApp
                 }
 
             }
-
-
-          
-
-           
-
             //when we have drawn all of the items add the total
 
             offset = offset + 20; //make some room so that the total stands out.
@@ -637,26 +599,6 @@ namespace ShoppingApp
             graphic.DrawString("     Thank-you for your custom,", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + 15;
             graphic.DrawString("       please come back soon!", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbBalance_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbBalance2_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -685,17 +627,18 @@ namespace ShoppingApp
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void panel4_Click(object sender, EventArgs e)
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
-
+            mouseLocation = new Point(-e.X, -e.Y);
         }
-        private int timerCounter = 0;
-        private void timer1_Tick(object sender, EventArgs e)
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
         {
-            timerCounter++;
-            if (timerCounter == 5)
+            if(e.Button == MouseButtons.Left)
             {
-                button5.Enabled = false;
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouseLocation.X, mouseLocation.Y);
+                this.Location = mousePos;
             }
         }
     }
