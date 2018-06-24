@@ -39,20 +39,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.Size = new System.Drawing.Size(132, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Status:";
             // 
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatus.Location = new System.Drawing.Point(84, 9);
+            this.lbStatus.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.Location = new System.Drawing.Point(140, 0);
+            this.lbStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(58, 22);
+            this.lbStatus.Size = new System.Drawing.Size(115, 30);
             this.lbStatus.TabIndex = 1;
             this.lbStatus.Text = "label2";
             this.lbStatus.Visible = false;
@@ -65,34 +68,43 @@
             // lbNotify
             // 
             this.lbNotify.AutoSize = true;
-            this.lbNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNotify.Location = new System.Drawing.Point(12, 31);
+            this.lbNotify.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNotify.Location = new System.Drawing.Point(13, 63);
+            this.lbNotify.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNotify.Name = "lbNotify";
-            this.lbNotify.Size = new System.Drawing.Size(58, 22);
+            this.lbNotify.Size = new System.Drawing.Size(115, 30);
             this.lbNotify.TabIndex = 2;
             this.lbNotify.Text = "label2";
             this.lbNotify.Visible = false;
             // 
             // lbItems
             // 
-            this.lbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(203)))), ((int)(((byte)(196)))));
+            this.lbItems.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbItems.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbItems.ForeColor = System.Drawing.SystemColors.Window;
             this.lbItems.FormattingEnabled = true;
-            this.lbItems.ItemHeight = 20;
-            this.lbItems.Location = new System.Drawing.Point(16, 56);
+            this.lbItems.ItemHeight = 29;
+            this.lbItems.Location = new System.Drawing.Point(0, 162);
+            this.lbItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbItems.Name = "lbItems";
-            this.lbItems.Size = new System.Drawing.Size(161, 64);
+            this.lbItems.Size = new System.Drawing.Size(713, 120);
             this.lbItems.TabIndex = 3;
             this.lbItems.Visible = false;
+            this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 174);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.ClientSize = new System.Drawing.Size(713, 282);
             this.Controls.Add(this.lbItems);
             this.Controls.Add(this.lbNotify);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

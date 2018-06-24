@@ -28,7 +28,7 @@ namespace CampingApp
         public Form1()
         {
             InitializeComponent();
-            connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456";
+            connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456;SslMode = none; ";
             ev = new Events();
             rfidManager = new RfidManager();
             labelInfo.Text = "Press CHECKIN!";
@@ -591,6 +591,46 @@ namespace CampingApp
                 labelstats.Text = "";
                 labelInfo.Text = "Press CHECKIN!";
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxCampNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxSpotNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTentSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
         //private void buttonCheckOut_Click(object sender, EventArgs e)
         //{

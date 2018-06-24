@@ -628,7 +628,7 @@ namespace LoaningApplicationProP
             string SQL = $" UPDATE `tickets_visitor` SET `event_money`={(currentVisitor.EventBalance) } WHERE `id` = {vID};";
             string SQL2 = $" UPDATE `others_loanitem` SET `status`= 'T' WHERE `id` = {iID};";
             //put functionality to chose the dates lor loaning
-            string SQL3 = $"INSERT INTO `others_loan`(`start_date`, `end_date`, `item_id`, `visitor_id`) VALUES ('2018-06-{startDate}','2018-06-30',{iID},{vID})";
+            string SQL3 = $"INSERT INTO `others_loan`(`start_date`, `end_date`, `item_id`, `visitor_id`) VALUES ('2018-06-{startDate}','NULL',{iID},{vID})";
 
 
             try
