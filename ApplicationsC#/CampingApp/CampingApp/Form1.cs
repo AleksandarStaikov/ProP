@@ -39,6 +39,9 @@ namespace CampingApp
             rfid = new RFID();
             rfid.Open();
             rfid.Attach += RFIDstuffs;
+            tabControl1.Location = (new Point(ClientSize.Width / 2 - tabControl1.Width / 2,
+                                    ClientSize.Height / 2 - tabControl1.Height / 2));
+            tabControl1.Anchor = AnchorStyles.None;
         }
         public void RFIDstuffs(object sender, AttachEventArgs e)
         {
@@ -213,6 +216,7 @@ namespace CampingApp
                                         cmd = new MySqlCommand(updateMoney, connection);
                                         cmd.ExecuteNonQuery();
                                         connection.Close();
+                                        MessageBox.Show("Reservation successful!");
                                     }
                                     else
                                     {
@@ -224,7 +228,7 @@ namespace CampingApp
                                 {
                                     MessageBox.Show("There are not more available spaces on this spot");
                                 }
-                                MessageBox.Show("Reservation successful!");
+                                
                             }
 
                             else
@@ -248,6 +252,7 @@ namespace CampingApp
                                         cmd = new MySqlCommand(updateMoney, connection);
                                         cmd.ExecuteNonQuery();
                                         connection.Close();
+                                        MessageBox.Show("Reservation successful!");
                                     }
                                     else
                                     {
@@ -259,7 +264,7 @@ namespace CampingApp
                                 {
                                     MessageBox.Show("There are not more available spaces on this spot");
                                 }
-                                MessageBox.Show("Reservation successful!");
+                                
                             }
                         }
                         else
