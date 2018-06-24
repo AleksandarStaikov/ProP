@@ -27,3 +27,17 @@ C:\Users\Vlad.LUCA\Desktop\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicat
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\Google.Protobuf.dll
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\MySql.Data.xml
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.CopyComplete
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.exe.config
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.exe
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\LoaningApplicationProP.pdb
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\MySql.Data.dll
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\Google.Protobuf.dll
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\bin\Debug\MySql.Data.xml
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csprojAssemblyReference.cache
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.Form1.resources
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.Properties.Resources.resources
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.GenerateResource.cache
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.csproj.CopyComplete
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.exe
+C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\apps\LoaningApplicationProP\LoaningApplicationProP\obj\Debug\LoaningApplicationProP.pdb
