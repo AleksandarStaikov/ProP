@@ -68,11 +68,12 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPageCheckIn);
             this.tabControl1.Controls.Add(this.tabPageReserve);
             this.tabControl1.Controls.Add(this.tabPageAddTent);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(92, 27);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -83,7 +84,8 @@
             // 
             // tabPageCheckIn
             // 
-            this.tabPageCheckIn.BackColor = System.Drawing.Color.LightBlue;
+            this.tabPageCheckIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(195)))), ((int)(((byte)(18)))));
+            this.tabPageCheckIn.BackgroundImage = global::CampingApp.Properties.Resources.Background4;
             this.tabPageCheckIn.Controls.Add(this.labelstats);
             this.tabPageCheckIn.Controls.Add(this.buttonReserve);
             this.tabPageCheckIn.Controls.Add(this.buttonADDTent);
@@ -107,11 +109,11 @@
             // 
             // buttonReserve
             // 
-            this.buttonReserve.BackColor = System.Drawing.Color.Purple;
+            this.buttonReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.buttonReserve.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonReserve.FlatAppearance.BorderSize = 4;
+            this.buttonReserve.FlatAppearance.BorderSize = 0;
             this.buttonReserve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReserve.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReserve.Location = new System.Drawing.Point(23, 160);
             this.buttonReserve.Name = "buttonReserve";
             this.buttonReserve.Size = new System.Drawing.Size(249, 175);
@@ -122,11 +124,11 @@
             // 
             // buttonADDTent
             // 
-            this.buttonADDTent.BackColor = System.Drawing.Color.Purple;
+            this.buttonADDTent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.buttonADDTent.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonADDTent.FlatAppearance.BorderSize = 4;
+            this.buttonADDTent.FlatAppearance.BorderSize = 0;
             this.buttonADDTent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonADDTent.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonADDTent.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonADDTent.Location = new System.Drawing.Point(773, 158);
             this.buttonADDTent.Name = "buttonADDTent";
             this.buttonADDTent.Size = new System.Drawing.Size(249, 178);
@@ -146,11 +148,11 @@
             // 
             // buttonCheck
             // 
-            this.buttonCheck.BackColor = System.Drawing.Color.Purple;
-            this.buttonCheck.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonCheck.FlatAppearance.BorderSize = 4;
+            this.buttonCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
+            this.buttonCheck.FlatAppearance.BorderColor = System.Drawing.Color.LightYellow;
+            this.buttonCheck.FlatAppearance.BorderSize = 0;
             this.buttonCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCheck.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCheck.Location = new System.Drawing.Point(363, 141);
             this.buttonCheck.Name = "buttonCheck";
             this.buttonCheck.Size = new System.Drawing.Size(330, 212);
@@ -174,11 +176,11 @@
             // 
             // buttonInsert
             // 
-            this.buttonInsert.BackColor = System.Drawing.Color.Purple;
-            this.buttonInsert.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonInsert.FlatAppearance.BorderSize = 4;
+            this.buttonInsert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
+            this.buttonInsert.FlatAppearance.BorderColor = System.Drawing.Color.LightYellow;
+            this.buttonInsert.FlatAppearance.BorderSize = 0;
             this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsert.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInsert.Location = new System.Drawing.Point(2, 438);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(1041, 93);
@@ -191,6 +193,7 @@
             // 
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.BackColor = System.Drawing.Color.LemonChiffon;
+            this.groupBox4.BackgroundImage = global::CampingApp.Properties.Resources.Background4;
             this.groupBox4.Controls.Add(this.comboBoxTentSize);
             this.groupBox4.Controls.Add(this.comboBoxSpotNo);
             this.groupBox4.Controls.Add(this.comboBoxCampNo);
@@ -202,7 +205,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("OCR A Extended", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
@@ -211,13 +214,15 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Reservation on the spot";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // comboBoxTentSize
             // 
-            this.comboBoxTentSize.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxTentSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.comboBoxTentSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTentSize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxTentSize.ForeColor = System.Drawing.Color.GreenYellow;
+            this.comboBoxTentSize.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTentSize.ForeColor = System.Drawing.Color.White;
             this.comboBoxTentSize.FormattingEnabled = true;
             this.comboBoxTentSize.Items.AddRange(new object[] {
             "2",
@@ -225,15 +230,17 @@
             "6"});
             this.comboBoxTentSize.Location = new System.Drawing.Point(908, 238);
             this.comboBoxTentSize.Name = "comboBoxTentSize";
-            this.comboBoxTentSize.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxTentSize.Size = new System.Drawing.Size(121, 37);
             this.comboBoxTentSize.TabIndex = 16;
+            this.comboBoxTentSize.SelectedIndexChanged += new System.EventHandler(this.comboBoxTentSize_SelectedIndexChanged);
             // 
             // comboBoxSpotNo
             // 
-            this.comboBoxSpotNo.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxSpotNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.comboBoxSpotNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSpotNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxSpotNo.ForeColor = System.Drawing.Color.GreenYellow;
+            this.comboBoxSpotNo.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSpotNo.ForeColor = System.Drawing.Color.White;
             this.comboBoxSpotNo.FormattingEnabled = true;
             this.comboBoxSpotNo.Items.AddRange(new object[] {
             "1",
@@ -244,15 +251,17 @@
             "6"});
             this.comboBoxSpotNo.Location = new System.Drawing.Point(741, 238);
             this.comboBoxSpotNo.Name = "comboBoxSpotNo";
-            this.comboBoxSpotNo.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxSpotNo.Size = new System.Drawing.Size(121, 37);
             this.comboBoxSpotNo.TabIndex = 15;
+            this.comboBoxSpotNo.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpotNo_SelectedIndexChanged);
             // 
             // comboBoxCampNo
             // 
-            this.comboBoxCampNo.BackColor = System.Drawing.Color.Purple;
+            this.comboBoxCampNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.comboBoxCampNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCampNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBoxCampNo.ForeColor = System.Drawing.Color.GreenYellow;
+            this.comboBoxCampNo.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCampNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.comboBoxCampNo.FormattingEnabled = true;
             this.comboBoxCampNo.Items.AddRange(new object[] {
             "1",
@@ -305,15 +314,16 @@
             "48"});
             this.comboBoxCampNo.Location = new System.Drawing.Point(570, 238);
             this.comboBoxCampNo.Name = "comboBoxCampNo";
-            this.comboBoxCampNo.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxCampNo.Size = new System.Drawing.Size(121, 37);
             this.comboBoxCampNo.TabIndex = 14;
+            this.comboBoxCampNo.SelectedIndexChanged += new System.EventHandler(this.comboBoxCampNo_SelectedIndexChanged);
             // 
             // lbResStatus
             // 
             this.lbResStatus.AutoSize = true;
             this.lbResStatus.Location = new System.Drawing.Point(600, 119);
             this.lbResStatus.Name = "lbResStatus";
-            this.lbResStatus.Size = new System.Drawing.Size(0, 31);
+            this.lbResStatus.Size = new System.Drawing.Size(0, 25);
             this.lbResStatus.TabIndex = 13;
             // 
             // lbStatus
@@ -321,51 +331,65 @@
             this.lbStatus.AutoSize = true;
             this.lbStatus.Location = new System.Drawing.Point(600, 66);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(0, 31);
+            this.lbStatus.Size = new System.Drawing.Size(0, 25);
             this.lbStatus.TabIndex = 12;
             // 
             // listBox1
             // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.listBox1.Font = new System.Drawing.Font("OCR A Extended", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 30;
+            this.listBox1.ItemHeight = 24;
             this.listBox1.Location = new System.Drawing.Point(7, 66);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(551, 334);
+            this.listBox1.Size = new System.Drawing.Size(551, 316);
             this.listBox1.TabIndex = 11;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(904, 188);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(884, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 31);
+            this.label4.Size = new System.Drawing.Size(177, 32);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tent size";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(747, 188);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 31);
+            this.label3.Size = new System.Drawing.Size(141, 32);
             this.label3.TabIndex = 5;
             this.label3.Text = "Spots #";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(564, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 31);
+            this.label2.Size = new System.Drawing.Size(177, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "Camping #";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("OCR A Extended", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(230, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 31);
+            this.label1.Size = new System.Drawing.Size(195, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Free Spots";
             // 
@@ -384,6 +408,7 @@
             // 
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.groupBox1.BackgroundImage = global::CampingApp.Properties.Resources.Background4;
             this.groupBox1.Controls.Add(this.cbAddTentOnly);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.StatusTent);
@@ -401,27 +426,30 @@
             // 
             // cbAddTentOnly
             // 
-            this.cbAddTentOnly.BackColor = System.Drawing.Color.Purple;
+            this.cbAddTentOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.cbAddTentOnly.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAddTentOnly.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbAddTentOnly.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAddTentOnly.ForeColor = System.Drawing.Color.GreenYellow;
             this.cbAddTentOnly.FormattingEnabled = true;
             this.cbAddTentOnly.Items.AddRange(new object[] {
             "2",
             "4",
             "6"});
-            this.cbAddTentOnly.Location = new System.Drawing.Point(198, 257);
+            this.cbAddTentOnly.Location = new System.Drawing.Point(217, 47);
             this.cbAddTentOnly.Name = "cbAddTentOnly";
-            this.cbAddTentOnly.Size = new System.Drawing.Size(121, 39);
+            this.cbAddTentOnly.Size = new System.Drawing.Size(121, 37);
             this.cbAddTentOnly.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(381, 261);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(370, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(378, 31);
+            this.label6.Size = new System.Drawing.Size(506, 30);
             this.label6.TabIndex = 16;
             this.label6.Text = "Choose between sizes: 2, 4, 6";
             // 
@@ -446,22 +474,25 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 257);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(45, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 31);
+            this.label5.Size = new System.Drawing.Size(166, 30);
             this.label5.TabIndex = 13;
             this.label5.Text = "Tent size";
             // 
             // buttonTent
             // 
-            this.buttonTent.BackColor = System.Drawing.Color.Purple;
+            this.buttonTent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.buttonTent.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonTent.FlatAppearance.BorderSize = 4;
+            this.buttonTent.FlatAppearance.BorderSize = 0;
             this.buttonTent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTent.Location = new System.Drawing.Point(827, 247);
+            this.buttonTent.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTent.Location = new System.Drawing.Point(375, 151);
             this.buttonTent.Name = "buttonTent";
-            this.buttonTent.Size = new System.Drawing.Size(160, 58);
+            this.buttonTent.Size = new System.Drawing.Size(230, 90);
             this.buttonTent.TabIndex = 11;
             this.buttonTent.Text = "ADD ";
             this.buttonTent.UseVisualStyleBackColor = false;
@@ -477,6 +508,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackgroundImage = global::CampingApp.Properties.Resources.Background2;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1082, 596);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(4);

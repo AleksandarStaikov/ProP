@@ -117,5 +117,10 @@ namespace CheckOutApplication
             this.lbItems.Visible = false;
             this.tmNotification.Stop();
         }
+
+        private void lbItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

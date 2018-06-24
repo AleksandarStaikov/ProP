@@ -22,16 +22,14 @@ namespace ShoppingApp
     public partial class Form1 : Form
     {
         public ChoseShop shop;
-        private RFID myRFIDReader;
         private MySqlConnection connection = new MySqlConnection();
         private SqlMannager sqlMannager;
         private RFIDManager rfidManager;
         List<Item> myItems;
-        Visitor currentVisitor;
         List<Visitor> users = new List<Visitor>();
         List<Item> ordered;
         double totalPrice = 0;
-
+        Point mouseLocation = new Point();
 
         public Form1()
         {
@@ -161,34 +159,6 @@ namespace ShoppingApp
             return null;
         }
 
-        // how to combine in one method?
-        private void lsbTakeFood_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Item aItm = ((Item)lsbTakeFood.SelectedItem);
-            try
-            {
-                pictureBox2.Image = aItm.ItemImage;
-            }
-            catch
-            {
-                //  MessageBox.Show("There was a problem loading the image");
-
-            }
-        }
-        // how to combine in one method?
-        private void lsbTakeDrinks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Item aItm = ((Item)lsbTakeDrinks.SelectedItem);
-            try
-            {
-                pictureBox1.Image = aItm.ItemImage;
-            }
-            catch (System.NullReferenceException)
-            {
-                //  MessageBox.Show("There was a problem loading the image");
-
-            }
-        }
 
         //add drinks
         private void button1_Click(object sender, EventArgs e)
@@ -203,24 +173,24 @@ namespace ShoppingApp
                 {
                     Item temp = new Item(0, "nothing", 0, 0, null, "not");
                     Item temp2 = null;
-                    int quant = temp.Quantety;
+                    int quant = temp.Quantity;
 
                     temp.SellingPrice = ((Item)lsbTakeDrinks.SelectedItem).SellingPrice;
-                    temp.Quantety = Convert.ToInt32(nud1.Value);
+                    temp.Quantity = Convert.ToInt32(nud1.Value);
                     temp.Name = ((Item)lsbTakeDrinks.SelectedItem).Name;
                     temp.ItemImage = ((Item)lsbTakeDrinks.SelectedItem).ItemImage;
                     temp.Type = ((Item)lsbTakeDrinks.SelectedItem).Type;
                     temp.HoldId = ((Item)lsbTakeDrinks.SelectedItem).HoldId;
 
-                    // int quant = temp.Quantety;
-                    //adds the selected item to the other list and in the orderd items list.
+                    // int quant = temp.Quantity;
+                    //adds the selected item to the other list and in the ordered items list.
                     bool found = false;
                     foreach (Item i in ordered)
                     {
                         if (i.Name == temp.Name)
                         {
 
-                            temp.Quantety += i.Quantety;
+                            temp.Quantity += i.Quantity;
                             lsbHaveDrinks.Items.Remove(i);
                             temp2 = i;
                             found = true;
@@ -231,11 +201,11 @@ namespace ShoppingApp
                     ordered.Add(temp);
 
                     if (!found)
-                        ordered[ordered.Count() - 1].Quantety = Convert.ToInt32(nud1.Value);
+                        ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud1.Value);
 
                     totalPrice += (!found)
-                          ? ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice
-                            : ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                          ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
+                            : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
 
                     FillPrice();
 
@@ -268,10 +238,10 @@ namespace ShoppingApp
                 {
                     Item temp = new Item(0, "nothing", 0, 0, null, "not");
                     Item temp2 = null; ;
-                    int quant = temp.Quantety;
+                    int quant = temp.Quantity;
 
                     temp.SellingPrice = ((Item)lsbTakeFood.SelectedItem).SellingPrice;
-                    temp.Quantety = Convert.ToInt32(nud2.Value);
+                    temp.Quantity = Convert.ToInt32(nud2.Value);
                     temp.Name = ((Item)lsbTakeFood.SelectedItem).Name;
                     temp.ItemImage = ((Item)lsbTakeFood.SelectedItem).ItemImage;
                     temp.Type = ((Item)lsbTakeFood.SelectedItem).Type;
@@ -283,8 +253,8 @@ namespace ShoppingApp
                     {
                         if (i.Name == temp.Name)
                         {
-                            quant = i.Quantety;
-                            temp.Quantety += i.Quantety;
+                            quant = i.Quantity;
+                            temp.Quantity += i.Quantity;
                             lsbHaveFood.Items.Remove(i);
                             temp2 = i;
                             found = true;
@@ -299,11 +269,11 @@ namespace ShoppingApp
                     ordered.Add(temp);
 
                     if (!found)
-                        ordered[ordered.Count() - 1].Quantety = Convert.ToInt32(nud2.Value);
+                        ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud2.Value);
 
                     totalPrice += (!found)
-                                ? ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice
-                                : ordered[ordered.Count() - 1].Quantety * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                                ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
+                                : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
 
                     FillPrice();
 
@@ -334,11 +304,11 @@ namespace ShoppingApp
         //find a way to genarilaze this
         public void RemoveFromLSBxItemsOnSelected(ListBox myListBox, int quantaty, Item temp)
         {
-            if (temp.Quantety != 0)
+            if (temp.Quantity != 0)
             {
                 totalPrice -= temp.SellingPrice * quantaty;
-                temp.Quantety -= quantaty;
-                if (temp.Quantety != 0)
+                temp.Quantity -= quantaty;
+                if (temp.Quantity != 0)
                 {
                     myListBox.Items.Remove(temp);
                     myListBox.Items.Add(temp);
@@ -363,7 +333,7 @@ namespace ShoppingApp
                 if (item.Name == temp.Name)
                 {
                     //take from here and put in in lsb but first change the quant of this 
-                    item.Quantety += quantaty;
+                    item.Quantity += quantaty;
 
                     temp2 = item;
                     break;
@@ -384,7 +354,7 @@ namespace ShoppingApp
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveDrinks.SelectedItem);
-            int quanta = temp.Quantety;
+            int quanta = temp.Quantity;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -448,24 +418,27 @@ namespace ShoppingApp
             else
             {
                 var visitorId = this.sqlMannager.GetUserIDByRfid(tag);
-            var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
+                if(visitorId != -1)
+                {
+                    var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
 
-            foreach (var item in this.ordered)
-            {
-                this.sqlMannager.AddOrder(item, purchaseId);
+                    foreach (var item in this.ordered)
+                    {
+                        this.sqlMannager.AddOrder(item, purchaseId);
+                    }
+                    this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
+
+                    this.rfidManager.tagFound -= RunTransactions;
+                    MessageBox.Show("Print receipt?", "Transaction Successfull", MessageBoxButtons.YesNo);
+                    lsbHaveFood.Items.Clear();
+                    lsbHaveDrinks.Items.Clear();
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid RFID Code", "Transaction failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
-
-            this.rfidManager.tagFound -= RunTransactions;
-            MessageBox.Show("Transaction Successfull");
-                lsbHaveFood.Items.Clear();
-                lsbHaveDrinks.Items.Clear();
-                
-            }
-
-            
-
-            // clear form
         }
 
         private void btnSelectShop_Click(object sender, EventArgs e)
@@ -477,12 +450,13 @@ namespace ShoppingApp
         {
             this.myItems = sqlMannager.LoadShopItems(shop.Choice);
             this.FillListBoxes();
+            btnChoseShop.Enabled = false;
         }
 
         private void btnRemoveAll2_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveFood.SelectedItem);
-            int quanta = temp.Quantety;
+            int quanta = temp.Quantity;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -501,7 +475,7 @@ namespace ShoppingApp
         private void button3_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveFood.SelectedItem);
-            int quanta = temp.Quantety;
+            int quanta = temp.Quantity;
             // substract from total sum and update the item for listbox.
             try
             {
@@ -524,7 +498,6 @@ namespace ShoppingApp
             shop.button2c += new ChoseShop.myChoiceEventHandler(SelectedShop);
             shop.button3c += new ChoseShop.myChoiceEventHandler(SelectedShop);
             shop.button4c += new ChoseShop.myChoiceEventHandler(SelectedShop);
-            btnChoseShop.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -557,9 +530,6 @@ namespace ShoppingApp
         public void CreateReceipt(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             totalPrice = 0;
-            int total = 0;          
-            double change = 0;
-
             //this prints the reciept
 
             Graphics graphic = e.Graphics;
@@ -613,12 +583,6 @@ namespace ShoppingApp
                 }
 
             }
-
-
-          
-
-           
-
             //when we have drawn all of the items add the total
 
             offset = offset + 20; //make some room so that the total stands out.
@@ -638,5 +602,44 @@ namespace ShoppingApp
 
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool maximized = false;
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (maximized == false)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                maximized = true;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                maximized = false;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseLocation = new Point(-e.X, -e.Y);
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                Point mousePos = Control.MousePosition;
+                mousePos.Offset(mouseLocation.X, mouseLocation.Y);
+                this.Location = mousePos;
+            }
+        }
     }
 }
