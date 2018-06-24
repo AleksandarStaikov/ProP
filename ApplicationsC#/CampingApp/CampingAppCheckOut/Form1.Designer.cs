@@ -60,7 +60,7 @@
             this.tabPageCheckOut.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageCheckOut.Size = new System.Drawing.Size(1036, 521);
             this.tabPageCheckOut.TabIndex = 1;
-            this.tabPageCheckOut.Text = "CheckOut";
+            this.tabPageCheckOut.Text = "CHECKOUT";
             // 
             // labelHint
             // 
@@ -101,10 +101,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(1068, 589);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageCheckOut.ResumeLayout(false);
             this.tabPageCheckOut.PerformLayout();

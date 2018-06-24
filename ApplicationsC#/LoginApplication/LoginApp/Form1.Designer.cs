@@ -39,6 +39,7 @@
             this.stopScaning = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lbNotify = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbRegStatus = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbNotify = new System.Windows.Forms.Label();
             this.tmNotification = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -163,6 +163,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Check In";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lbNotify
+            // 
+            this.lbNotify.AutoSize = true;
+            this.lbNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNotify.Location = new System.Drawing.Point(8, 116);
+            this.lbNotify.Name = "lbNotify";
+            this.lbNotify.Size = new System.Drawing.Size(60, 24);
+            this.lbNotify.TabIndex = 9;
+            this.lbNotify.Text = "label4";
+            this.lbNotify.Visible = false;
             // 
             // label2
             // 
@@ -294,17 +305,6 @@
             this.label3.Size = new System.Drawing.Size(187, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "Register a new visitor";
-            // 
-            // lbNotify
-            // 
-            this.lbNotify.AutoSize = true;
-            this.lbNotify.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNotify.Location = new System.Drawing.Point(8, 116);
-            this.lbNotify.Name = "lbNotify";
-            this.lbNotify.Size = new System.Drawing.Size(60, 24);
-            this.lbNotify.TabIndex = 9;
-            this.lbNotify.Text = "label4";
-            this.lbNotify.Visible = false;
             // 
             // tmNotification
             // 
