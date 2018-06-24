@@ -54,7 +54,14 @@ namespace ShoppingApp
                         $"from tickets_visitor v " +
                         $"WHERE v.rfid_code = '{tag}'";
             MySqlCommand command = new MySqlCommand(query, connection);
-            return long.Parse(command.ExecuteScalar().ToString());
+            var result = new Object();
+
+            if((result = command.ExecuteScalar()) != null)
+            {
+                return long.Parse(result.ToString());
+            }
+
+            return -1;
         }
 
         public long AddAPurchase(long visitorID)
@@ -70,13 +77,13 @@ namespace ShoppingApp
         public void AddOrder(Item item, long purchase_id)
         {
             var query = $"UPDATE others_hold h " +
-                        $"set h.quantity_in_stock = h.quantity_in_stock - {item.Quantety} " +
+                        $"set h.quantity_in_stock = h.quantity_in_stock - {item.Quantity} " +
                         $"WHERE h.id = {item.HoldId}";
             MySqlCommand updateCommand = new MySqlCommand(query, connection);
             updateCommand.ExecuteNonQuery();
 
             var insertQuery = $"INSERT INTO `others_order`(`quantity`, `hold_id`, `purchase_id`) " +
-                    $"VALUES('{item.Quantety}', '{item.HoldId}', '{purchase_id}')";
+                    $"VALUES('{item.Quantity}', '{item.HoldId}', '{purchase_id}')";
             MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
             insertCommand.ExecuteNonQuery();
         }

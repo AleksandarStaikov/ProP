@@ -438,16 +438,16 @@ namespace ShoppingApp
             // x foreach item in order decrease amount and create orrder record
             // x detach method form event
 
-            //if (label4.InvokeRequired)
-            //{
-            //    label4.Invoke((MethodInvoker)delegate ()
-            //    {
-            //        this.RunTransactions(tag);
-            //    });
-            //}
-            //else
-            //{
-            var visitorId = this.sqlMannager.GetUserIDByRfid(tag);
+            if (label18.InvokeRequired)
+            {
+                label18.Invoke((MethodInvoker)delegate ()
+                {
+                    this.RunTransactions(tag);
+                });
+            }
+            else
+            {
+                var visitorId = this.sqlMannager.GetUserIDByRfid(tag);
             var purchaseId = this.sqlMannager.AddAPurchase(visitorId);
 
             foreach (var item in this.ordered)
@@ -458,10 +458,13 @@ namespace ShoppingApp
 
             this.rfidManager.tagFound -= RunTransactions;
             MessageBox.Show("Transaction Successfull");
-            //}
+                lsbHaveFood.Items.Clear();
+                lsbHaveDrinks.Items.Clear();
+                
+            }
 
-            // notify it was successful 
-            // reciept ???
+            
+
             // clear form
         }
 
@@ -544,8 +547,10 @@ namespace ShoppingApp
             {
                 printDocument.Print();
             }
-                //****************************************************
-            
+            totalPrice = 0;
+            FillPrice();
+            //****************************************************
+
         }
 
      
@@ -567,7 +572,9 @@ namespace ShoppingApp
             int startY = 10;
             int offset = 40;
 
-            graphic.DrawString(" Food Shop", new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY);
+            graphic.DrawString("Event Name: Mascarada", new Font("Courier New", 18), new SolidBrush(Color.Black), startX-4, startY);
+            offset = offset + (int)fontHeight;
+            graphic.DrawString("Shop: Food Shop", new Font("Courier New", 18), new SolidBrush(Color.Black), startX -4, startY = offset);
             string top = "Item Name".PadRight(30) + "Price";
             graphic.DrawString(top, font, new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + (int)fontHeight; //make the spacing consistent
@@ -619,11 +626,15 @@ namespace ShoppingApp
             graphic.DrawString("Total to pay ".PadRight(30) + String.Format("{0:c}", totalprice), new Font("Courier New", 12, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + offset);
 
             offset = offset + 30; //make some room so that the total stands out.        
-            graphic.DrawString("CHANGE ".PadRight(30) + String.Format("{0:c}", change), font, new SolidBrush(Color.Black), startX, startY + offset);
-            offset = offset + 30; //make some room so that the total stands out.
-            graphic.DrawString("     Thank-you for your custom,", font, new SolidBrush(Color.Black), startX, startY + offset);
+                                  //  graphic.DrawString("CHANGE ".PadRight(30) + String.Format("{0:c}", change), font, new SolidBrush(Color.Black), startX, startY + offset);
+                                  //  offset = offset + 30; //make some room so that the total stands out.
+            graphic.DrawString("     Customer support telephone: 0603334567", new Font("Courier New", 9), new SolidBrush(Color.Black), startX, startY + offset);
             offset = offset + 15;
-            graphic.DrawString("       please come back soon!", font, new SolidBrush(Color.Black), startX, startY + offset);
+            graphic.DrawString("     Customer support email: mascarada@yahoo.com", new Font("Courier New", 9), new SolidBrush(Color.Black), startX, startY + offset);
+            offset = offset + 30;
+            graphic.DrawString("     Thank-you for your custom,", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
+            offset = offset + 15;
+            graphic.DrawString("       please come back soon!", new Font("Courier New", 10), new SolidBrush(Color.Black), startX, startY + offset);
 
         }
 

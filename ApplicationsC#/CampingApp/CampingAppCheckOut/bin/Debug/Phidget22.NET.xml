@@ -1818,11 +1818,12 @@
         </member>
         <member name="P:Phidget22.DigitalOutput.DutyCycle">
             <summary> The duty cycle value </summary>
-            <remarks>The <c>DutyCycle</c> represents the on time of the output.
+            <remarks>The <c>DutyCycle</c> represents the fraction of time the output is on (high).
             <list>
             <item>A <c>DutyCycle</c> of 1.0 translates to a high output, a <c>DutyCycle</c> of 0
-            translate to a low output, and a <c>DutyCycle</c> of 0.5 translate to an output that is high
-            half the time, which results in an average output voltage of (output voltage x 0.5)</item>
+            translates to a low output.</item>
+            <item>A <c>DutyCycle</c> of 0.5 translates to an output that is high half the time, which
+            results in an average output voltage of (output voltage x 0.5)</item>
             <item>You can use the <c>DutyCycle</c> to create a dimming effect on LEDs.</item>
             </list>
             
@@ -1873,16 +1874,28 @@
         </member>
         <member name="P:Phidget22.DigitalOutput.State">
             <summary> The state value </summary>
-            <remarks>The <c>State</c> will dictate whether the output is high or low.
+            <remarks>The <c>State</c> will indicate whether the output is high (TRUE) or low (FALSE).
+            <list>
+            <item>If a <c>DutyCycle</c> has been set, the state will return as TRUE if the DutyCycle is
+            above 0.5, or FALSE otherwise.</item>
+            </list>
+            
             </remarks>
         </member>
         <member name="M:Phidget22.DigitalOutput.BeginSetDutyCycle(System.Double,System.AsyncCallback,System.Object)">
             <summary>The duty cycle value </summary>
-            <remarks>The <c>DutyCycle</c> represents the on time of the output.
+            <remarks>The <c>DutyCycle</c> represents the fraction of time the output is on (high).
             <list>
+            <item>This will override the <c>State</c> setting on the channel.</item>
             <item>A <c>DutyCycle</c> of 1.0 translates to a high output, a <c>DutyCycle</c> of 0
-            translate to a low output, and a <c>DutyCycle</c> of 0.5 translate to an output that is high
-            half the time, which results in an average output voltage of (output voltage x 0.5)</item>
+            translates to a low output.</item>
+            </list>
+            <list>
+            <item>This is equivalent to setting a <c>State</c> of TRUE and FALSE respectively.</item>
+            </list>
+            <list>
+            <item>A <c>DutyCycle</c> of 0.5 translates to an output that is high half the time, which
+            results in an average output voltage of (output voltage x 0.5)</item>
             <item>You can use the <c>DutyCycle</c> to create a dimming effect on LEDs.</item>
             </list>
             
@@ -1908,7 +1921,14 @@
         </member>
         <member name="M:Phidget22.DigitalOutput.BeginSetState(System.Boolean,System.AsyncCallback,System.Object)">
             <summary>The state value </summary>
-            <remarks>The <c>State</c> will dictate whether the output is high or low.
+            <remarks>The <c>State</c> will dictate whether the output is constantly high (TRUE) or low (FALSE).
+            <list>
+            <item>This will override any <c>DutyCycle</c> that may have been set on the channel.</item>
+            <item>Setting the <c>State</c> to TRUE is the same as setting <c>DutyCycle</c> to 1.0,
+            and setting the <c>State</c> to FALSE is the same as setting a <c>DutyCycle</c> of
+            0.0.</item>
+            </list>
+            
             </remarks>
         </member>
         <member name="M:Phidget22.DigitalOutput.EndSetState(System.IAsyncResult)">
@@ -5776,9 +5796,13 @@
             Multicast DNS is used to discover and publish Phidget servers.
             <p>To connect to remote Phidgets, call this function with server type <b>DEVICEREMOTE</b>.</p>
             <p><c>EnableServerDiscovery()</c> must be called once for each server type your program
-            requires. Multiple calls for the same server type are ignored
+            requires. Multiple calls for the same server type are ignored</p>
+            <p>This call will fail with the error code <b>EPHIDGET_UNSUPPORTED</b> if your computer does not
+            have the required mDNS support. We recommend using Bonjour Print Services on Windows and Mac, or
+            Avahi on Linux.</p>
             
-            See:</p>
+            
+            See:
             <list>
             <item><c>DisableServerDiscovery()</c></item>
             <item><c>AddServer()</c></item>

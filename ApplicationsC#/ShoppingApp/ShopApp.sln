@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopApp", "ShoppingApp\ShopApp.csproj", "{D09661E2-A09C-44BA-AC69-5E62CD3D2AD4}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6798AAF2-5C89-4E92-AFFB-E8CF0B949339}
+		SolutionGuid = {A4446BEB-218E-4621-9773-1888CF3D3A7A}
 	EndGlobalSection
 EndGlobal

@@ -12,3 +12,17 @@ C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogAp
 C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\Google.Protobuf.dll
 C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\MySql.Data.xml
 C:\Users\Aleksandar\Desktop\Uni\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.csproj.CopyComplete
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\ATMLogApplication.exe.config
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\ATMLogApplication.exe
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\ATMLogApplication.pdb
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\MySql.Data.dll
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\Google.Protobuf.dll
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\bin\Debug\MySql.Data.xml
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.csprojAssemblyReference.cache
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.Form1.resources
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.Properties.Resources.resources
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.csproj.GenerateResource.cache
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.csproj.CoreCompileInputs.cache
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.csproj.CopyComplete
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.exe
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\TransactionLog\ATMLogApplication\obj\Debug\ATMLogApplication.pdb
