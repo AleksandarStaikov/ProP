@@ -28,3 +28,4 @@ C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\ShopApp.csproj.CopyComplete
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.exe
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.pdb
+C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\ShoppingApp\ShoppingApp\obj\Debug\EntranceAppGui.FoodTab.resources
