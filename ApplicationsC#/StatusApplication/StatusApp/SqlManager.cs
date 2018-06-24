@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-
-namespace StatusApp
+﻿namespace StatusApp
 {
+    using System;
+    using System.Collections.Generic;
+    using MySql.Data.MySqlClient;
+    using StatusApp.Models;
+
     public class SqlManager
     {
         public MySqlConnection connection { get; set; }
@@ -39,7 +36,7 @@ namespace StatusApp
                                           "ON(o.hold_id = oh.id) " +
                                       "GROUP BY oh.item_id " +
                                       "ORDER BY SUM(o.quantity) " +
-                                      "LIMIT 1)"; 
+                                      "LIMIT 1)";
             MySqlCommand command = new MySqlCommand(query, connection);
             return this.NormalizeRezult(command.ExecuteScalar());
         }
@@ -94,6 +91,67 @@ namespace StatusApp
                             "ON l.item_id = i.id";
             MySqlCommand command = new MySqlCommand(query, connection);
             return this.NormalizeRezult(command.ExecuteScalar());
+        }
+
+        public List<AtendeesForADay> AtendeesByDays()
+        {
+            var dates = new List<AtendeesForADay>();
+            var query = $"SELECT CAST(entry_date AS DATE) as entry_date, COUNT(id) as atendees " +
+                        $"FROM `tickets_entryticket` " +
+                        $"WHERE entry_date IS NOT NULL " +
+                        $"GROUP BY CAST(entry_date AS DATE) " +
+                        $"ORDER BY CAST(entry_date AS DATE) " +
+                        $"LIMIT 3";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    dates.Add(new AtendeesForADay(DateTime.Parse(reader["entry_date"].ToString()), int.Parse(reader["atendees"].ToString())));
+                }
+            }
+            return dates;
+        }
+
+        public List<ShopSalesByDay> MoneyAtShopsByDay()
+        {
+            var dates = new List<ShopSalesByDay>();
+            var query = $"SELECT CAST(p.time AS DATE) AS date,  SUM(o.quantity * i.price) AS money " +
+                        $"FROM others_order o " +
+                        $"INNER JOIN others_hold h " +
+                            $"ON o.hold_id = h.id " +
+                        $"INNER JOIN others_item i " +
+                            $" ON h.item_id = i.id " +
+                        $"INNER JOIN others_purchase p " +
+                            $"ON o.purchase_id = p.id " +
+                        $"GROUP BY CAST(p.time AS DATE)";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    dates.Add(new ShopSalesByDay(DateTime.Parse(reader["date"].ToString()), double.Parse(reader["money"].ToString())));
+                }
+            }
+            return dates;   
+        }
+
+        public List<CurrentlyNotReturnedItems> NotReturnedItems()
+        {
+            var items = new List<CurrentlyNotReturnedItems>();
+            var query = $"SELECT name, COUNT(id) as count " +
+                        $"FROM `others_loanitem` " +
+                        $"WHERE status<> 'A' " +
+                        $"GROUP BY name";
+            var command = new MySqlCommand(query, connection);
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    items.Add(new CurrentlyNotReturnedItems(reader["name"].ToString(), int.Parse(reader["count"].ToString())));
+                }
+            }
+            return items;
         }
 
         private string NormalizeRezult(object input)

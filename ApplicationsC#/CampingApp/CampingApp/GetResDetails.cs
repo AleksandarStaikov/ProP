@@ -12,6 +12,8 @@ namespace CampingApp
 
         public int Visitor_id { get; set; }
 
+        public int Res_id { get; set; }
+
 
     }
 }

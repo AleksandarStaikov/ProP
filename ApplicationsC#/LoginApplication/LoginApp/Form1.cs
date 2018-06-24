@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using ZXing;
-using ZXing.QrCode;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using LoginApp.Models;
 
@@ -24,7 +16,6 @@ namespace LoginApp
         private const string DB = "dbi380752";
         private const string HOST = "studmysql01.fhict.local";
         private string connectionString = $"server={HOST};database={DB};user id={USER};password={PASSWORD};connect timeout=30;SslMode=none";
-
 
         public Form1()
         {
@@ -53,6 +44,7 @@ namespace LoginApp
                 registrationVisitor = new RegistrationVisitor();
                 rfidManager = new RFIDManager();
                 connection.Open();
+                rfidManager.tagFound += this.CheckInVisitor;
                 qrFound += GetUser;
 
                 CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -84,15 +76,15 @@ namespace LoginApp
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
             lbStatus.Text = "Start scaning";
-            button1.Enabled = false;
-            button2.Enabled = true;
+            turonOnCamera.Enabled = false;
+            startScanning.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             timer1.Start();
-            button2.Enabled = false;
-            button3.Enabled = true;
+            startScanning.Enabled = false;
+            stopScaning.Enabled = true;
             lbStatus.Text = "Put your QR code infront of the camera";
         }
 
@@ -125,7 +117,7 @@ namespace LoginApp
 
             try
             {
-                var query = SqlCommands.getUserIdByQrQuery(qr);
+                var query = SqlCommands.getUserIdByQr(qr);
                 MySqlCommand command = new MySqlCommand(query, connection);
                 string queryResult = ((int)command.ExecuteScalar()).ToString();
                 this.entranceVisitor.CurrentId = queryResult;
@@ -136,7 +128,8 @@ namespace LoginApp
             }
 
             lbStatus.Text = "PLease tag your rfid braclet";
-            rfidManager.tagFound += RFIDFound;
+            this.rfidManager.tagFound += this.RFIDFound;
+            this.rfidManager.tagFound -= this.CheckInVisitor;
         }
 
         public void RFIDFound(string rfid)
@@ -155,6 +148,7 @@ namespace LoginApp
                     lbStatus.Text = "Your rfid braclet has been checked, please wait.";
                     this.entranceVisitor.CurrentRFID = rfid;
                     this.rfidManager.tagFound -= RFIDFound;
+                    this.rfidManager.tagFound += this.CheckInVisitor;
                     this.AddRFIDToVisitor();
                 }
                 catch (Exception ex)
@@ -174,7 +168,8 @@ namespace LoginApp
             var anotherCommand = new MySqlCommand(anotherQuery, connection);
             anotherCommand.ExecuteNonQuery();
 
-            lbStatus.Text = "Entrance was successfull, please scan next!";
+            lbStatus.Text = "Scan QR code or RFID braclet!";
+            this.Notify("Entrance successful!");
             this.entranceVisitor.ResetFields();
             timer1.Start();
         }
@@ -182,8 +177,8 @@ namespace LoginApp
         private void button3_Click(object sender, EventArgs e)
         {
             timer1.Stop();
-            button2.Enabled = true;
-            button3.Enabled = false;
+            startScanning.Enabled = true;
+            stopScaning.Enabled = false;
             lbStatus.Text = "Start scaning";
         }
 
@@ -223,7 +218,13 @@ namespace LoginApp
                     var query = SqlCommands.RegisterNewVisitor(this.registrationVisitor);
                     var command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
+                    long newVisitorId = command.LastInsertedId;
 
+                    query = SqlCommands.AddNewTicket(newVisitorId);
+                    command = new MySqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+
+                    this.tabControl1.SelectedIndex = 0;
                     this.rfidManager.tagFound -= RegisterVisitor;
                     this.ClearRegistrationForm();
                 }
@@ -235,6 +236,53 @@ namespace LoginApp
 
         }
 
+        private void CheckInVisitor(string rfidTag)
+        {
+            if (lbStatus.InvokeRequired)
+            {
+                lbStatus.Invoke((MethodInvoker)delegate ()
+                {
+                    CheckInVisitor(rfidTag);
+                });
+            }
+            else
+            {
+                try
+                {
+                    var query = SqlCommands.CheckIfRfidExists(rfidTag);
+                    var command = new MySqlCommand(query, connection);
+                    var result = command.ExecuteScalar();
+
+                    
+                    if (result != null)
+                    {
+                        if (((bool)result) == true)
+                        {
+                            this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                            this.Notify("This RFID was already checked in, please check out first.");
+                        }
+                        else
+                        {
+                            var updateQuery = SqlCommands.CheckInVisitor(rfidTag);
+                            var updateCommand = new MySqlCommand(updateQuery, connection);
+                            updateCommand.ExecuteNonQuery();
+                            this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                            this.Notify("Check-in successful!");
+                        }
+                    }
+                    else
+                    {
+                        this.lbStatus.Text = "Scan QR code or RFID bracelet!";
+                        this.Notify("Check -in unsuccessful, this bracelet is not in the system, try again!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
         private void ClearRegistrationForm()
         {
             this.tbNewEmail.Text = string.Empty;
@@ -242,7 +290,21 @@ namespace LoginApp
             this.tbNewLName.Text = string.Empty;
             this.dtpNewBirthDate.Value = DateTime.Now;
             this.registrationVisitor.ResetData();
-            this.lbRegStatus.Text = "Registratoin successful, proceed with the next visitor!";
+            this.lbRegStatus.Text = "Scan QR code or RFID bracelet!";
+            this.Notify("Checking successfull");
+        }
+
+        private void Notify(string text)
+        {
+            this.tmNotification.Start();
+            this.lbNotify.Text = text;
+            this.lbNotify.Visible = true;
+        }
+
+        private void tmNotification_Tick(object sender, EventArgs e)
+        {
+            this.lbNotify.Visible = false;
+            this.tmNotification.Stop();
         }
     }
 }

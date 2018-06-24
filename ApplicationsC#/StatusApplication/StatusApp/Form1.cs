@@ -33,8 +33,13 @@
                 this.timer1.Tick += this.UpdateFields;
                 this.timer1.Start();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
+                if (ex.Message.Contains("Unable to connect"))
+                {
+                    MessageBox.Show("Application unable to connect to the database");
+                    this.Close();
+                }
                 MessageBox.Show(ex.Message);
             }
         }
@@ -47,20 +52,25 @@
 
         private void UpdateFields(object sender, EventArgs e)
         {
+            this.lbUpdated.Text = DateTime.Now.ToString();
+
             this.lbTickets.Text = this.queryManager.TicketsPurchased();
-            this.lbAttendees.Text = this.queryManager.CurrentAttendees();
+            //this.lbAttendees.Text = this.queryManager.CurrentAttendees();
             this.lbPurchasedItem.Text = this.queryManager.MostPurchasedItem();
             this.lbPrefferedStore.Text = this.queryManager.MostPrefferedShop();
-            this.lbMoneyAtStores.Text = this.queryManager.MoneySpendOnShops();
+            //this.lbMoneyAtStores.Text = this.queryManager.MoneySpendOnShops();
             this.lbMoneyForLoaning.Text = this.queryManager.MoneySpentForLoaning();
             this.lbLoanedMaterial.Text = this.queryManager.MostLoanedMaterial();
+            this.grAtendees.DataSource = this.queryManager.AtendeesByDays();
+            this.grMoney.DataSource = this.queryManager.MoneyAtShopsByDay();
+            this.grLostItems.DataSource = this.queryManager.NotReturnedItems();
         }
 
         private void showLables()
         {
-            lbAttendees.Visible = true;
+            //lbAttendees.Visible = true;
             lbLoanedMaterial.Visible = true;
-            lbMoneyAtStores.Visible = true;
+            //lbMoneyAtStores.Visible = true;
             lbMoneyForLoaning.Visible = true;
             lbPrefferedStore.Visible = true;
             lbPurchasedItem.Visible = true;
