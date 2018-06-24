@@ -46,10 +46,10 @@ namespace ShoppingApp
         {
             if (this.EventBalance > itm.SellingPrice)
             {
-                if (itm.Quantety > 0)
+                if (itm.Quantity > 0)
                 {
                     this.EventBalance -= itm.SellingPrice;
-                    itm.Quantety--;
+                    itm.Quantity--;
                     this.RentedItems.Add(itm);
                     return true;
                 }
@@ -65,7 +65,7 @@ namespace ShoppingApp
                 if (i.HoldId == itm.HoldId)
                 {
                     RentedItems.Remove(itm);
-                    itm.Quantety++;
+                    itm.Quantity++;
                     return true;
                 }
             }

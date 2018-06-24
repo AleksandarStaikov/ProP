@@ -13,18 +13,18 @@ namespace ShoppingApp
        
         public double SellingPrice { get; set; }
         public string Name { get; set; }
-        public int Quantety { get; set; }
+        public int Quantity { get; set; }
         public int HoldId { get; set; }
         public Image ItemImage { get; set; }
         public string Type { get; set; }
 
 
-        public Item( double Value, string name, int quantity, int id, Image img, string type)
+        public Item(double Value, string name, int quantity, int id, Image img, string type)
         {
           
             this.SellingPrice = Value;
             this.Name = name;
-            this.Quantety = quantity;
+            this.Quantity = quantity;
             this.HoldId = id;
             this.ItemImage = img;
             this.Type = type;
@@ -32,12 +32,12 @@ namespace ShoppingApp
 
         public void TakeSomeItems(int quant)
         {
-            this.Quantety -= quant;
+            this.Quantity -= quant;
         }
 
         public override string ToString()
         {
-            return $"{Name}-{Quantety}";
+            return $"{Name}-{Quantity}";
         }
     }
 }

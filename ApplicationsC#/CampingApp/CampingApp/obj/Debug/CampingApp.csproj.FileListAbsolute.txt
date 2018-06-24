@@ -26,3 +26,18 @@ C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingAp
 C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CopyComplete
 C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.exe
 C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.pdb
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.exe.config
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.exe
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\CampingApp.pdb
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.dll
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\MySql.Data.xml
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.pdb
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.xml
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csprojAssemblyReference.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.Form1.resources
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.Properties.Resources.resources
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.GenerateResource.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CoreCompileInputs.cache
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csproj.CopyComplete
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.exe
+C:\Users\VelinSE\Documents\Uni_prjcts\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.pdb
