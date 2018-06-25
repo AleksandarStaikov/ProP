@@ -82,19 +82,20 @@ namespace CheckOutApplication
                 try
                 {
                     var items = this.sqlManager.GetVisitorsItems(tag);
-                    this.sqlManager.CheckOutVisitor(tag);
-
-                    if (items != null)
+                    if(!sqlManager.GetVisitorTent(tag) || (items != null))
                     {
+                        items.Add("tent");
                         this.lbItems.DataSource = items;
                         this.lbItems.Visible = true;
                         this.Notify(CHECKOUT_SUCCESSFUL + UNRETURNED_ITEMS);
                     }
                     else
                     {
+                        this.sqlManager.CheckOutVisitor(tag);
                         this.Notify(CHECKOUT_SUCCESSFUL);
                     }
                     this.lbStatus.Text = DEFAULT_WAITING_STATUS;
+                   
                 }
                 catch (Exception ex)
                 {

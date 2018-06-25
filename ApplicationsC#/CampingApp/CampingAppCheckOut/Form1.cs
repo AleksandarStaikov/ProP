@@ -23,7 +23,7 @@ namespace CampingAppCheckOut
         public Form1()
         {
             InitializeComponent();
-            connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456";
+            connectionString = "server=studmysql01.fhict.local;database=dbi380752;username=dbi380752;password=123456;SslMode=none";
             rfidManager = new RfidManager();
             labelHint.Text = "Press CHECKOUT button!";
             

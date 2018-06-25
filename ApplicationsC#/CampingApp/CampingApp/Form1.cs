@@ -397,6 +397,7 @@ namespace CampingApp
                         int money = 0;
                         connection.Close();
                         double eventMoney;
+                        string tent = FindTentID(connection);
                         if (double.TryParse(GetEventMoney(connection), out eventMoney))
                         {
                             if (cbAddTentOnly.SelectedItem != null)
@@ -409,6 +410,14 @@ namespace CampingApp
                                         money = 15;
                                         if (add != null)
                                         {
+                                            if (tent != string.Empty)
+                                            {
+                                                StatusTent.Text = "";
+                                                rfidManager.tagFound -= AddTent;
+                                                tabControl1.SelectedTab = tabPageCheckIn;
+                                                MessageBox.Show("You already have a tent for this reservation!");
+                                                return;
+                                            }
                                             if (eventMoney >= money)
                                             {
 
@@ -446,6 +455,14 @@ namespace CampingApp
                                         money = 30;
                                         if (add != null)
                                         {
+                                            if (tent != string.Empty)
+                                            {
+                                                StatusTent.Text = "";
+                                                rfidManager.tagFound -= AddTent;
+                                                tabControl1.SelectedTab = tabPageCheckIn;
+                                                MessageBox.Show("You already have a tent for this reservation!");
+                                                return;
+                                            }
                                             if (eventMoney >= money)
                                             {
                                                 string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(cbAddTentOnly.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";
@@ -483,6 +500,14 @@ namespace CampingApp
                                         money = 45;
                                         if (add != null)
                                         {
+                                            if (tent != string.Empty)
+                                            {
+                                                StatusTent.Text = "";
+                                                rfidManager.tagFound -= AddTent;
+                                                tabControl1.SelectedTab = tabPageCheckIn;
+                                                MessageBox.Show("You already have a tent for this reservation!");
+                                                return;
+                                            }
                                             if (eventMoney >= money)
                                             {
                                                 string insertTent = "INSERT INTO camping_tent (size,taken_time) VALUES ('" + int.Parse(cbAddTentOnly.SelectedItem.ToString()) + "', '" + System.DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss") + "') ";

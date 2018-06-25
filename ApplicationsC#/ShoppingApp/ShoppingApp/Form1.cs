@@ -494,12 +494,14 @@ namespace ShoppingApp
                         {
                             printDocument.Print();
                         }
-                        totalPrice = 0;
-                        FillPrice();
+                        
                     }
                     lsbHaveFood.Items.Clear();
                     lsbHaveDrinks.Items.Clear();
+                    ordered = new List<Item>();
 
+                    totalPrice = 0;
+                    FillPrice();
                 }
                 else
                 {
@@ -604,7 +606,7 @@ namespace ShoppingApp
      
         public void CreateReceipt(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            totalPrice = 0;
+            //totalPrice = 0;
             //this prints the reciept
 
             Graphics graphic = e.Graphics;
@@ -632,7 +634,7 @@ namespace ShoppingApp
                 //create the string to print on the reciept
                 string productDescription = item.Name;
 
-                double productPrice = item.SellingPrice;
+                double productPrice = item.SellingPrice * item.Quantity;
 
                 //MessageBox.Show(item.Substring(item.Length - 5, 5) + "PROD TOTAL: " + productTotal);
 
