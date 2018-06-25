@@ -83,3 +83,30 @@ C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\De
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.pdb
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.1.0.0.6.Fakes.dll
 C:\Users\Vlad.LUCA\Desktop\ProP\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.1.0.0.6.Fakes.xml
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.1.0.0.6.Fakes.fakesconfig
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.1.0.0.6.Fakes.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\bin\Debug\Phidget22.NET.1.0.0.6.Fakes.xml
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\CampingApp.csprojFakesResolveAssemblyReference.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\fakes.args
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Microsoft.QualityTools.Testing.Fakes.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\MySql.Data.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\MySql.Data.xml
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Phidget22.NET.1.0.0.6.Fakes.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Phidget22.NET.1.0.0.6.Fakes.fakesconfig
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Phidget22.NET.1.0.0.6.Fakes.pdb
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Phidget22.NET.1.0.0.6.Fakes.xml
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\b\Phidget22.NET.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.ah
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.ch
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.cs
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.csproj
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.fakes
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.fakesconfig
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\f.snk
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\f.csproj.CopyComplete
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\f.csproj.CoreCompileInputs.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\f.csproj.FileListAbsolute.txt
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\f.csprojResolveAssemblyReference.cache
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\Phidget22.NET.1.0.0.6.Fakes.dll
+C:\alexander\Semester 2\ProP\Repository\ProP\ApplicationsC#\CampingApp\CampingApp\obj\Debug\Fakes\p22net\o\Phidget22.NET.1.0.0.6.Fakes.pdb
