@@ -214,7 +214,6 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Reservation on the spot";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // comboBoxTentSize
             // 
@@ -222,7 +221,7 @@
             this.comboBoxTentSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTentSize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxTentSize.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTentSize.ForeColor = System.Drawing.Color.White;
+            this.comboBoxTentSize.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboBoxTentSize.FormattingEnabled = true;
             this.comboBoxTentSize.Items.AddRange(new object[] {
             "2",
@@ -232,7 +231,6 @@
             this.comboBoxTentSize.Name = "comboBoxTentSize";
             this.comboBoxTentSize.Size = new System.Drawing.Size(121, 37);
             this.comboBoxTentSize.TabIndex = 16;
-            this.comboBoxTentSize.SelectedIndexChanged += new System.EventHandler(this.comboBoxTentSize_SelectedIndexChanged);
             // 
             // comboBoxSpotNo
             // 
@@ -240,7 +238,7 @@
             this.comboBoxSpotNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSpotNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxSpotNo.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSpotNo.ForeColor = System.Drawing.Color.White;
+            this.comboBoxSpotNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboBoxSpotNo.FormattingEnabled = true;
             this.comboBoxSpotNo.Items.AddRange(new object[] {
             "1",
@@ -253,7 +251,6 @@
             this.comboBoxSpotNo.Name = "comboBoxSpotNo";
             this.comboBoxSpotNo.Size = new System.Drawing.Size(121, 37);
             this.comboBoxSpotNo.TabIndex = 15;
-            this.comboBoxSpotNo.SelectedIndexChanged += new System.EventHandler(this.comboBoxSpotNo_SelectedIndexChanged);
             // 
             // comboBoxCampNo
             // 
@@ -261,7 +258,7 @@
             this.comboBoxCampNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCampNo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxCampNo.Font = new System.Drawing.Font("OCR A Extended", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCampNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.comboBoxCampNo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.comboBoxCampNo.FormattingEnabled = true;
             this.comboBoxCampNo.Items.AddRange(new object[] {
             "1",
@@ -316,7 +313,6 @@
             this.comboBoxCampNo.Name = "comboBoxCampNo";
             this.comboBoxCampNo.Size = new System.Drawing.Size(121, 37);
             this.comboBoxCampNo.TabIndex = 14;
-            this.comboBoxCampNo.SelectedIndexChanged += new System.EventHandler(this.comboBoxCampNo_SelectedIndexChanged);
             // 
             // lbResStatus
             // 
@@ -344,7 +340,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(551, 316);
             this.listBox1.TabIndex = 11;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -356,7 +351,6 @@
             this.label4.Size = new System.Drawing.Size(177, 32);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tent size";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -368,7 +362,6 @@
             this.label3.Size = new System.Drawing.Size(141, 32);
             this.label3.TabIndex = 5;
             this.label3.Text = "Spots #";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -380,7 +373,6 @@
             this.label2.Size = new System.Drawing.Size(177, 32);
             this.label2.TabIndex = 3;
             this.label2.Text = "Camping #";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -430,7 +422,7 @@
             this.cbAddTentOnly.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAddTentOnly.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbAddTentOnly.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAddTentOnly.ForeColor = System.Drawing.Color.GreenYellow;
+            this.cbAddTentOnly.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cbAddTentOnly.FormattingEnabled = true;
             this.cbAddTentOnly.Items.AddRange(new object[] {
             "2",

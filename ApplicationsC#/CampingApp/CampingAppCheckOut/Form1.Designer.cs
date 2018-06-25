@@ -52,9 +52,11 @@
             // tabPageCheckOut
             // 
             this.tabPageCheckOut.BackColor = System.Drawing.Color.LightBlue;
+            this.tabPageCheckOut.BackgroundImage = global::CampingAppCheckOut.Properties.Resources.Background4;
             this.tabPageCheckOut.Controls.Add(this.labelHint);
             this.tabPageCheckOut.Controls.Add(this.labelStatus);
             this.tabPageCheckOut.Controls.Add(this.buttonCheckOut);
+            this.tabPageCheckOut.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageCheckOut.Location = new System.Drawing.Point(4, 40);
             this.tabPageCheckOut.Name = "tabPageCheckOut";
             this.tabPageCheckOut.Padding = new System.Windows.Forms.Padding(3);
@@ -67,7 +69,7 @@
             this.labelHint.AutoSize = true;
             this.labelHint.Location = new System.Drawing.Point(335, 14);
             this.labelHint.Name = "labelHint";
-            this.labelHint.Size = new System.Drawing.Size(0, 32);
+            this.labelHint.Size = new System.Drawing.Size(0, 30);
             this.labelHint.TabIndex = 2;
             // 
             // labelStatus
@@ -75,15 +77,19 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Location = new System.Drawing.Point(335, 99);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(0, 32);
+            this.labelStatus.Size = new System.Drawing.Size(0, 30);
             this.labelStatus.TabIndex = 1;
             // 
             // buttonCheckOut
             // 
-            this.buttonCheckOut.BackColor = System.Drawing.Color.Purple;
+            this.buttonCheckOut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCheckOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(229)))), ((int)(((byte)(56)))));
             this.buttonCheckOut.FlatAppearance.BorderColor = System.Drawing.Color.GreenYellow;
-            this.buttonCheckOut.FlatAppearance.BorderSize = 3;
+            this.buttonCheckOut.FlatAppearance.BorderSize = 0;
             this.buttonCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCheckOut.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCheckOut.Location = new System.Drawing.Point(341, 181);
             this.buttonCheckOut.Name = "buttonCheckOut";
             this.buttonCheckOut.Size = new System.Drawing.Size(346, 202);
