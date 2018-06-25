@@ -57,7 +57,16 @@ namespace LoginApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message.Contains("Unable to connect"))
+                {
+                    MessageBox.Show("Unable to connect to the database");
+                    this.Close();
+                }
+                else
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
