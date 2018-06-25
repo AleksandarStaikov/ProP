@@ -62,10 +62,25 @@ namespace ShoppingApp
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            this.connection = new MySqlConnection(this.GetConnectionString());
-            this.OpenConnection();
-            this.sqlMannager = new SqlMannager(connection);
-            this.rfidManager = new RFIDManager();
+            try
+            {
+                this.connection = new MySqlConnection(this.GetConnectionString());
+                this.OpenConnection();
+                this.sqlMannager = new SqlMannager(connection);
+                this.rfidManager = new RFIDManager();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains($"Unable to connect"))
+                {
+                    MessageBox.Show("Unable to connect to the database.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
          
             //Form1 frm = new Form1()
             //subscribe to events in chosenShop
@@ -189,7 +204,7 @@ namespace ShoppingApp
                     {
                         if (i.Name == temp.Name)
                         {
-
+                            quant = i.Quantity;
                             temp.Quantity += i.Quantity;
                             lsbHaveDrinks.Items.Remove(i);
                             temp2 = i;
@@ -203,12 +218,23 @@ namespace ShoppingApp
                     if (!found)
                         ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud1.Value);
 
-                    totalPrice += (!found)
-                          ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
-                            : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                    //totalPrice += (!found)
+                    //      ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
+                    //        : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+
+                    if (found == false)
+                    {
+                        totalPrice += ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice;
+                    }
+                    else
+                    {
+                        totalPrice += ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+
+                    }
+
 
                     FillPrice();
-
+                   // temp.Quantity += 1;
                     lsbHaveDrinks.Items.Add(temp);
 
                     ((Item)lsbTakeDrinks.SelectedItem).TakeSomeItems(Convert.ToInt32(nud1.Value));
@@ -221,6 +247,8 @@ namespace ShoppingApp
                 {
                     MessageBox.Show(ex.Message);
                 }
+
+               
 
             }
         }
@@ -271,9 +299,19 @@ namespace ShoppingApp
                     if (!found)
                         ordered[ordered.Count() - 1].Quantity = Convert.ToInt32(nud2.Value);
 
-                    totalPrice += (!found)
-                                ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
-                                : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+                    //totalPrice += (!found)
+                    //            ? ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice
+                    //            : ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+
+                    if (found == false)
+                    {
+                        totalPrice += ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice;
+                    }
+                    else
+                    {
+                        totalPrice += ordered[ordered.Count() - 1].Quantity * ordered[ordered.Count() - 1].SellingPrice - quant * ordered[ordered.Count() - 1].SellingPrice;
+
+                    }
 
                     FillPrice();
 
@@ -354,7 +392,16 @@ namespace ShoppingApp
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveDrinks.SelectedItem);
-            int quanta = temp.Quantity;
+            int quanta =0;
+            try
+            {
+                 quanta = temp.Quantity;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
             // substract from total sum and update the item for listbox.
             try
             {
@@ -429,7 +476,27 @@ namespace ShoppingApp
                     this.sqlMannager.DecreaseVisitorMoney(visitorId, totalPrice);
 
                     this.rfidManager.tagFound -= RunTransactions;
-                    MessageBox.Show("Print receipt?", "Transaction Successfull", MessageBoxButtons.YesNo);
+                    if(MessageBox.Show("Print receipt?", "Transaction Successfull", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        PrintDialog printDialog = new PrintDialog();
+
+                        PrintDocument printDocument = new PrintDocument();
+
+                        printDialog.Document = printDocument; //add the document to the dialog box...        
+
+                        printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(CreateReceipt); //add an event handler that will do the printing
+
+                        //on a till you will not want to ask the user where to print but this is fine for the test envoironment.
+
+                        DialogResult result = printDialog.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            printDocument.Print();
+                        }
+                        totalPrice = 0;
+                        FillPrice();
+                    }
                     lsbHaveFood.Items.Clear();
                     lsbHaveDrinks.Items.Clear();
 
@@ -456,7 +523,15 @@ namespace ShoppingApp
         private void btnRemoveAll2_Click(object sender, EventArgs e)
         {
             Item temp = ((Item)lsbHaveFood.SelectedItem);
-            int quanta = temp.Quantity;
+            int quanta =0;
+            try
+            {
+                quanta = temp.Quantity;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             // substract from total sum and update the item for listbox.
             try
             {
