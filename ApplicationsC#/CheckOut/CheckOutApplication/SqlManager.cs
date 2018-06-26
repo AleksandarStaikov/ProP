@@ -38,6 +38,29 @@ namespace CheckOutApplication
 
             return items.Count == 0 ? null : items;
         }
+        public bool GetVisitorTent(string tag)
+        {
+            var query = $"SELECT t.id, t.size " +
+                        $"FROM tickets_visitor v " +
+                        $"INNER JOIN camping_reservation r " +
+                            $"ON v.id = r.visitor_id " +
+                        $"INNER JOIN camping_tent t " +
+                            $"ON r.tent_id = t.id " +
+                        $"WHERE t.returned_time IS NULL " +
+                        $"AND v.rfid_code = '{tag}'";
+            var command = new MySqlCommand(query, connection);
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         public void CheckOutVisitor(string rfidTag)
         {
