@@ -100,29 +100,6 @@ namespace ATMLogApplication
             this.connection.Close();
         }
 
-        private void lbFileName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbUpdated_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

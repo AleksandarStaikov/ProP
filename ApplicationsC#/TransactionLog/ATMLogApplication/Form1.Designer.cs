@@ -63,7 +63,6 @@
             this.lbFileName.Size = new System.Drawing.Size(121, 30);
             this.lbFileName.TabIndex = 2;
             this.lbFileName.Text = "label1";
-            this.lbFileName.Click += new System.EventHandler(this.lbFileName_Click);
             // 
             // button2
             // 
@@ -91,7 +90,6 @@
             this.label1.Size = new System.Drawing.Size(265, 30);
             this.label1.TabIndex = 4;
             this.label1.Text = "Selected File:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -104,7 +102,6 @@
             this.label2.Size = new System.Drawing.Size(139, 30);
             this.label2.TabIndex = 5;
             this.label2.Text = "Status:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // lbStatus
             // 
@@ -117,7 +114,6 @@
             this.lbStatus.Size = new System.Drawing.Size(121, 30);
             this.lbStatus.TabIndex = 6;
             this.lbStatus.Text = "label3";
-            this.lbStatus.Click += new System.EventHandler(this.lbStatus_Click);
             // 
             // lbUpdated
             // 
@@ -134,7 +130,6 @@
             this.lbUpdated.Name = "lbUpdated";
             this.lbUpdated.Size = new System.Drawing.Size(1400, 203);
             this.lbUpdated.TabIndex = 7;
-            this.lbUpdated.SelectedIndexChanged += new System.EventHandler(this.lbUpdated_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -152,7 +147,7 @@
             this.Font = new System.Drawing.Font("OCR A Extended", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Transaction Log";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

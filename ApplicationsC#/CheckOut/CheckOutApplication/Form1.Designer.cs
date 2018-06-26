@@ -86,7 +86,7 @@
             this.lbItems.FormattingEnabled = true;
             this.lbItems.ItemHeight = 29;
             this.lbItems.Location = new System.Drawing.Point(0, 162);
-            this.lbItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbItems.Margin = new System.Windows.Forms.Padding(4);
             this.lbItems.Name = "lbItems";
             this.lbItems.Size = new System.Drawing.Size(713, 120);
             this.lbItems.TabIndex = 3;
@@ -104,9 +104,9 @@
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Check Out Application";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
